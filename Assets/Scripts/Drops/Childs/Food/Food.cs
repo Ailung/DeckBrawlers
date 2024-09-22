@@ -5,7 +5,7 @@ using UnityEngine;
 public class Food : Drops
 {
     [SerializeField] private string id;
-    [SerializeField] private FoodEnum type;
+    [SerializeField] private FoodScriptable data;
     public override string Id => id;
 
     public override void PickUp()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IState
 {
-    void Enter(float deltaTime, GameObject gameObject);
-    void Exit(float deltaTime, GameObject gameObject);
-    void UpdateState(float deltaTime, GameObject gameObject);
+    void Enter();
+    void Exit();
+    void UpdateState();
 }

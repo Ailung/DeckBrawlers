@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinManager : MonoBehaviour
 {
-    int coins;
+    public int coins;
 
     public int Coins => coins;
 

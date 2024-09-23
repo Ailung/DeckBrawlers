@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - CharacterWeapon
+  - Coin
   - Weapon
+  - EnemyWeapon
+  - Drop
   layers:
   - Default
   - TransparentFX

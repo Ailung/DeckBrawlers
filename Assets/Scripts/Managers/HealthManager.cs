@@ -6,7 +6,9 @@ public class HealthManager : MonoBehaviour
 {
     [SerializeField] int maxHealth = 10;
 
-    int health;
+    public int health;
+
+    public int MaxHealth => maxHealth;
 
     private void Awake()
     {
@@ -19,7 +21,7 @@ public class HealthManager : MonoBehaviour
 
         if (health <= 0)
         {
-            //pantalla de derrota
+            Destroy(gameObject);
         }
     }
 

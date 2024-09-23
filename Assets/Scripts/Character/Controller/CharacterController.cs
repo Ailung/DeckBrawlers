@@ -4,33 +4,78 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
-    [SerializeField] int speed = 3;
-    [SerializeField] GameObject hand;
-    [SerializeField] GameObject foot;
+    [SerializeField] private int speed = 3;
+    [SerializeField] private GameObject hand;
+    [SerializeField] private GameObject foot;
+    private bool isFacingRight = true;
+    private StateMachine playerStateMachine;
 
-    float horizontal;
-    float vertical;
-    // Start is called before the first frame update
-    void Start()
+    private float horizontal;
+    private float vertical;
+
+    public StateMachine StateMachine => playerStateMachine;
+
+    private Rigidbody2D rb;
+
+    public Rigidbody2D Rb => rb;
+
+    private MeshRenderer mr;
+
+    private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
+        mr = GetComponent<MeshRenderer>();
+        playerStateMachine = new StateMachine(this.gameObject);
+        playerStateMachine.Initialize(playerStateMachine.idleState);
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
+        playerStateMachine.UpdateState();
+    }
 
-        if (Input.GetKeyDown(KeyCode.C))
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("EnemyWeapon"))
         {
-            
+
+            if (collision.TryGetComponent<Hands>(out Hands hands))
+            {
+                this.GetComponent<HealthManager>().getDamage(hands.AttackDamage);
+            }
+            if (collision.TryGetComponent<Leg>(out Leg leg))
+            {
+                this.GetComponent<HealthManager>().getDamage(leg.AttackDamage);
+            }
+
+        }
+        if (collision.CompareTag("Drop"))
+        {
+
+            if (collision.TryGetComponent<Drops>(out Drops drop))
+            {
+                drop.PickUp();
+            }
+
         }
     }
 
     private void FixedUpdate()
     {
-        Vector2 movement = new Vector2(horizontal * speed,vertical * speed);
-        transform.Translate(movement * Time.deltaTime);
+        float inputHorizontal = Input.GetAxis("Horizontal");
+        float inputVertical = Input.GetAxis("Vertical");
+
+        if (inputHorizontal < 0 && isFacingRight)
+        {
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x *-1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            isFacingRight = false;
+        } else if (inputHorizontal > 0 && !isFacingRight)
+        {
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * -1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            isFacingRight = true;
+        }
+
+        rb.velocity = new Vector2(inputHorizontal * speed, inputVertical * speed);
     }
 }

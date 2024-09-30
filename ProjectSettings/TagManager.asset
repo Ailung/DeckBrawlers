@@ -9,6 +9,7 @@ TagManager:
   - Weapon
   - EnemyWeapon
   - Drop
+  - Wall
   layers:
   - Default
   - TransparentFX

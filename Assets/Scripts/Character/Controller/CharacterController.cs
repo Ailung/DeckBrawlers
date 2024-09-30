@@ -8,6 +8,9 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private GameObject hand;
     [SerializeField] private GameObject foot;
     private bool isFacingRight = true;
+
+    public bool GetIsFacingRight() { return isFacingRight; }
+
     private StateMachine playerStateMachine;
 
     private float horizontal;

@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int speed = 3;
     [SerializeField] private float chaseDistance;
     [SerializeField] private float stopDistance;
+    [SerializeField] private float chasingDistance = 0.5f;
     private float playerDistance;
 
     [SerializeField] private GameObject hand;
@@ -19,8 +20,11 @@ public class EnemyController : MonoBehaviour
     public StateMachine StateMachine => enemyStateMachine;
     public float ChaseDistance => chaseDistance;
     public float StopDistance => stopDistance;
-    public float PlayerDistance => stopDistance;
-    public bool IsFacingRight => isFacingRight;
+    public float ChasingDistance => chasingDistance;
+    public float PlayerDistance => playerDistance;
+    public float Speed => speed;
+    public CharacterController CharacterController => player;
+    public bool IsFacingRight { get => isFacingRight; set => isFacingRight = value; }
 
     private Rigidbody2D rb;
 
@@ -32,8 +36,8 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         mr = GetComponent<MeshRenderer>();
-        //enemyStateMachine = new StateMachine(gameObject);
-        //enemyStateMachine.Initialize(enemyStateMachine.idleState);
+        enemyStateMachine = new StateMachine(this.gameObject);
+        enemyStateMachine.Initialize(enemyStateMachine.waitingState);
 
     }
 
@@ -57,14 +61,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         playerDistance = Vector2.Distance(transform.position, player.transform.position);
-        if (playerDistance < chaseDistance && playerDistance > stopDistance)
-        {
-            ChasePlayer();
-        }
-        if (playerDistance <= stopDistance)
-        {
-            StopChasePlayer();
-        }
+        StateMachine.UpdateState();
     }
 
     private void StopChasePlayer()
@@ -87,5 +84,11 @@ public class EnemyController : MonoBehaviour
             isFacingRight = true;
         }
         transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+    }
+
+    public void changeStopAndChaseDistance(float stopDistance, float chaseDistance)
+    {
+        this.chaseDistance = chaseDistance; 
+        this.stopDistance = stopDistance;
     }
 }

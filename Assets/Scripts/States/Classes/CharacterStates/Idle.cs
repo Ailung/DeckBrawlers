@@ -17,12 +17,12 @@ public class Idle : MonoBehaviour, IState
     }
     public void Enter()
     {
-        Debug.Log("Entro en Idle");
+        
     }
 
     public void Exit()
     {
-        Debug.Log("Saliste de Idle");
+        
     }
 
     public void UpdateState()
@@ -44,15 +44,7 @@ public class Idle : MonoBehaviour, IState
             {
                 characterController.StateMachine.TransitionTo(characterController.StateMachine.kickingState);
             }
-        } else
-        {
-            if (enemyController.PlayerDistance < enemyController.ChaseDistance && enemyController.PlayerDistance > enemyController.StopDistance)
-            {
-                enemyController.StateMachine.TransitionTo(enemyController.StateMachine.chasingState);
-            }
         }
-        
-
 
     }
 

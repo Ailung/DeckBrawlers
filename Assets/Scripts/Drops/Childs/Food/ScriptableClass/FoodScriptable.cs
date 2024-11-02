@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "newCoinData", menuName = "Flyweight/FoodData", order = 1)]
+[CreateAssetMenu(fileName = "newFoodData", menuName = "Flyweight/FoodData", order = 1)]
 
 public class FoodScriptable : ScriptableObject
 {

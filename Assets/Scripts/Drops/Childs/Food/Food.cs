@@ -6,13 +6,19 @@ public class Food : Drops
 {
     [SerializeField] private string id;
     [SerializeField] private FoodScriptable data;
-    [SerializeField] private HealthManager manager;
+    private HealthManager manager;
+    private CharacterController player;
     public override string Id => id;
+
+    private void Awake()
+    {
+        player = FindFirstObjectByType<CharacterController>();
+        manager = player.GetComponent<HealthManager>();
+    }
 
     public override void PickUp()
     {
         Destroy(gameObject);
         manager.getHeal(data.foodAmount);
-        Debug.Log("regenerar vida");
     }
 }

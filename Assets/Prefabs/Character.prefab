@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 1836424473}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -392,9 +392,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dcf2f0340b26e144a4c28e5f71bdd58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  baseSpeed: 3
+  baseHealth: 100
   hand: {fileID: 8853757364226393591}
   foot: {fileID: 3175964124219915854}
+  appearanceCards: []
 --- !u!70 &3400456742453807802
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

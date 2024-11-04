@@ -10,7 +10,6 @@ public class Pistol : MonoBehaviour, IWeapon
     [SerializeField] private float attackSpeed;
 
     private CharacterController player;
-    private CloseEnemy enemy;
     private bool isAttacking = false;
     private float timerShoot;
     private BulletPoolManager bulletPool;

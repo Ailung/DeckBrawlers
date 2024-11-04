@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e6af45f35cd8b438aa8ab0725efaba, type: 3}
   m_Name: FastCloseEnemy
   m_EditorClassIdentifier: 
+  id: Normal
   speed: 5
-  contactDamage: 10
-  chaseDistance: 10
-  stopDistance: 0
+  chaseDistance: 3
+  stopDistance: 5
+  chasingDistance: 0.5
+  dropId: Coin
+  startChasing: 0

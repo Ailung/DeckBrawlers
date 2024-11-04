@@ -35,7 +35,7 @@ public class HealthManager : MonoBehaviour
             if (TryGetComponent<CharacterController>(out CharacterController characterController2)) 
             {
                 GameManager.Instance.ChangeScene("Lose");
-            } else if (TryGetComponent<Enemy>(out Enemy enemy))
+            } else if (TryGetComponent<EnemyController>(out EnemyController enemy))
             {
                 enemy.OnDie();
                 Destroy(gameObject);
@@ -57,5 +57,11 @@ public class HealthManager : MonoBehaviour
                 health = maxHealth;
             }
         }
+    }
+
+    public void Initialize(int maxHealth)
+    {
+        this.maxHealth = maxHealth;
+        health = maxHealth;
     }
 }

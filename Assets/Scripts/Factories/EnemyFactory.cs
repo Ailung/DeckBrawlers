@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class EnemyFactory : MonoBehaviour
 {
-    [SerializeField] private CloseEnemy[] Enemies;
-    private Dictionary<string, CloseEnemy> idEnemies;
+    [SerializeField] private EnemySriptableClass[] Enemies;
+    private Dictionary<string, EnemySriptableClass> idEnemies;
+    [SerializeField] private GameObject enemyPrefab;
 
     private void Awake()
     {
-        idEnemies = new Dictionary<string, CloseEnemy>();
+        idEnemies = new Dictionary<string, EnemySriptableClass>();
 
         foreach (var enemy in Enemies)
         {
-            idEnemies.Add(enemy.Id, enemy);
+            idEnemies.Add(enemy.id, enemy);
         }
     }
 
-    public CloseEnemy Create(string id)
+    public GameObject Create(string id)
     {
-        if (!idEnemies.TryGetValue(id, out CloseEnemy enemy))
+        if (!idEnemies.TryGetValue(id, out EnemySriptableClass enemyType))
         {
             return null;
         }
-        return Instantiate(enemy);
+
+        enemyPrefab.GetComponent<EnemyController>().changeEnemyData(enemyType);
+        return Instantiate(enemyPrefab);
     }
 }

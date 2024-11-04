@@ -19,16 +19,16 @@ public class Leg : Weapon
     {
         player = this.gameObject.GetComponentInParent<CharacterController>();
     }
-    public override void Attack()
+    public override void Attack(float agilityStat = 0)
     {
         isAttacking = true;
         gameObject.SetActive(true);
-        StartCoroutine(waitToEnd());
+        StartCoroutine(waitToEnd(agilityStat));
     }
 
-    IEnumerator waitToEnd()
+    IEnumerator waitToEnd(float agilityStat)
     {
-        yield return new WaitForSeconds(attackSpeed);
+        yield return new WaitForSeconds((float)(attackSpeed * (agilityStat/10) + attackSpeed));
         gameObject.SetActive(false);
         isAttacking = false;
     }

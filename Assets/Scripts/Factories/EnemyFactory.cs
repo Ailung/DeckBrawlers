@@ -18,7 +18,7 @@ public class EnemyFactory : MonoBehaviour
         }
     }
 
-    public GameObject Create(string id)
+    public GameObject Create(string id, Vector2 pos)
     {
         if (!idEnemies.TryGetValue(id, out EnemySriptableClass enemyType))
         {
@@ -26,6 +26,7 @@ public class EnemyFactory : MonoBehaviour
         }
 
         enemyPrefab.GetComponent<EnemyController>().changeEnemyData(enemyType);
+        enemyPrefab.transform.position = pos;
         return Instantiate(enemyPrefab);
     }
 }

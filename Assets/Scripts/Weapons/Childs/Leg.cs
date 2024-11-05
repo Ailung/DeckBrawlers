@@ -19,6 +19,11 @@ public class Leg : Weapon
     {
         player = this.gameObject.GetComponentInParent<CharacterController>();
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        gameObject.SetActive(false);
+    }
     public override void Attack(float agilityStat = 0)
     {
         isAttacking = true;

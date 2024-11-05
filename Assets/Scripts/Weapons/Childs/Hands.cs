@@ -16,6 +16,11 @@ public class Hands : Weapon
     public override CharacterController Player => player;
     public override bool IsAttacking => isAttacking;
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        gameObject.SetActive(false);
+    }
+
     private void Awake()
     {
         player = this.gameObject.GetComponentInParent<CharacterController>();

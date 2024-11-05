@@ -710,7 +710,7 @@ Transform:
   m_GameObject: {fileID: 8290562355641553743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.24, y: -3.6, z: 0}
+  m_LocalPosition: {x: 31.87519, y: -3.8024392, z: 0}
   m_LocalScale: {x: 0.424, y: 0.424, z: 0.424}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -754,7 +754,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -786,13 +786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef3c8c4eacad4f4e9827710fc5d05b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  chaseDistance: 3
-  stopDistance: 6
-  chasingDistance: 1
-  hand: {fileID: 7279252400400872977}
-  foot: {fileID: 8388318580321857390}
-  player: {fileID: 0}
+  enemyData: {fileID: 11400000, guid: 0947f1717dc2c714f8896ba0f57c4dc5, type: 2}
 --- !u!50 &2248080261210652170
 Rigidbody2D:
   serializedVersion: 4

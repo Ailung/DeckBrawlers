@@ -40,11 +40,4 @@ public class GameManager : MonoBehaviour
         characterController = character;
     }
 
-    private void Update()
-    {
-        if (FindObjectsOfType<Enemy>().Length <= 0 && SceneManager.GetActiveScene().name == "Level1")
-        {
-            ChangeScene("Win");
-        }
-    }
 }

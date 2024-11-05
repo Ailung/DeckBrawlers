@@ -44,6 +44,7 @@ public class EnemyController : MonoBehaviour
         mr = GetComponent<MeshRenderer>();
         enemyStateMachine = new StateMachine(this.gameObject);
         player = FindAnyObjectByType(typeof(CharacterController)).GetComponent<CharacterController>();
+        dropsFactory = FindAnyObjectByType<DropsFactory>().GetComponent<DropsFactory>();
         //hand = GetComponentInChildren<Hands>().gameObject;
         //foot = GetComponentInChildren<Leg>().gameObject;
         if (enemyData.startChasing){
@@ -55,19 +56,15 @@ public class EnemyController : MonoBehaviour
         
 
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("CharacterWeapon"))
         {
 
-            if (collision.TryGetComponent<Hands>(out Hands hands))
+            if (collision.TryGetComponent<Weapon>(out Weapon hands))
             {
                 this.GetComponent<HealthManager>().getDamage(hands.AttackDamage);
-            }
-            if (collision.TryGetComponent<Leg>(out Leg leg))
-            {
-                this.GetComponent<HealthManager>().getDamage(leg.AttackDamage);
             }
 
         }

@@ -16,4 +16,5 @@ public class AppearanceCardScriptableClass : ScriptableObject
     [SerializeField] public int appearanceDEX;
     [SerializeField] public int appearanceSPD;
     [SerializeField] public AppearanceEnum appearanceType;
+    [SerializeField] public Color appearanceColor;
 }

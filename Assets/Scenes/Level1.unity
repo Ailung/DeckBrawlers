@@ -953,6 +953,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: appearanceCards.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1903806254059479249, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
       propertyPath: m_Name
       value: Character

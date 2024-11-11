@@ -14,14 +14,23 @@ public class CharacterController : MonoBehaviour
     private int statAttack = 0;
     private int statAgility = 0;
     [SerializeField] private AppearanceCardScriptableClass[] appearanceCards;
-    private AppearanceCardScriptableClass appearanceHat;
-    private AppearanceCardScriptableClass appearanceSkin;
-    private AppearanceCardScriptableClass appearanceFace;
-    private AppearanceCardScriptableClass appearanceShape;
-    private AppearanceCardScriptableClass appearanceTop;
-    private AppearanceCardScriptableClass appearanceBottom;
-    private AppearanceCardScriptableClass appearanceHands;
-    private AppearanceCardScriptableClass appearanceShoes;
+    private AppearanceCardScriptableClass appearanceHat = null;
+    private AppearanceCardScriptableClass appearanceSkin = null;
+    private AppearanceCardScriptableClass appearanceFace = null;
+    private AppearanceCardScriptableClass appearanceShape = null;
+    private AppearanceCardScriptableClass appearanceTop = null;
+    private AppearanceCardScriptableClass appearanceBottom = null;
+    private AppearanceCardScriptableClass appearanceHands = null;
+    private AppearanceCardScriptableClass appearanceShoes = null;
+
+    public AppearanceCardScriptableClass AppearanceHat => appearanceHat;
+    public AppearanceCardScriptableClass AppearanceSkin => appearanceSkin;
+    public AppearanceCardScriptableClass AppearanceFace => appearanceFace;
+    public AppearanceCardScriptableClass AppearanceShape => appearanceShape;
+    public AppearanceCardScriptableClass AppearanceTop => appearanceTop;
+    public AppearanceCardScriptableClass AppearanceBottom => appearanceBottom;
+    public AppearanceCardScriptableClass AppearanceHands => appearanceHands;
+    public AppearanceCardScriptableClass AppearanceShoes => appearanceShoes;
 
     private bool isFacingRight = true;
     private StateMachine playerStateMachine;
@@ -43,6 +52,7 @@ public class CharacterController : MonoBehaviour
         playerStateMachine = new StateMachine(this.gameObject);
         healthManager = this.GetComponent<HealthManager>();
         playerStateMachine.Initialize(playerStateMachine.idleState);
+        appearanceCards = CardManager.Instance.GetAppearanceCards();
         GameManager.Instance.SetCharacter(this);
         
 

@@ -16,6 +16,10 @@ public class Coin : Drops
     [SerializeField] private CoinManager manager;
     public override string Id => id;
 
+    private void Awake()
+    {
+        manager = FindFirstObjectByType<CoinManager>();
+    }
     public override void PickUp()
     {
         Destroy(gameObject);

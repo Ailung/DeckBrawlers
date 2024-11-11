@@ -1,26 +1,36 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    [SerializeField] private int speed = 3;
-    [SerializeField] private float chaseDistance;
-    [SerializeField] private float stopDistance;
+    //[SerializeField] private float chaseDistance;
+    //[SerializeField] private float stopDistance;
+    //[SerializeField] private float chasingDistance = 0.5f;
+    //[SerializeField] public string dropId;
+    //[SerializeField] public bool startChasing;
+
+    [SerializeField] EnemySriptableClass enemyData;
     private float playerDistance;
 
-    [SerializeField] private GameObject hand;
-    [SerializeField] private GameObject foot;
-    [SerializeField] private CharacterController player;
+    private CharacterController player;
+    private GameObject hand;
+    private GameObject foot;
     private bool isFacingRight = false;
     private StateMachine enemyStateMachine;
+    private DropsFactory dropsFactory;
 
     public StateMachine StateMachine => enemyStateMachine;
-    public float ChaseDistance => chaseDistance;
-    public float StopDistance => stopDistance;
-    public float PlayerDistance => stopDistance;
-    public bool IsFacingRight => isFacingRight;
+    public float ChaseDistance => enemyData.chaseDistance;
+    public float StopDistance => enemyData.stopDistance;
+    public float ChasingDistance => enemyData.chasingDistance;
+    public float PlayerDistance => playerDistance;
+    public float Speed => enemyData.speed;
+    public string DropId => enemyData.dropId;
+    public CharacterController CharacterController => player;
+    public bool IsFacingRight { get => isFacingRight; set => isFacingRight = value; }
 
     private Rigidbody2D rb;
 
@@ -32,23 +42,29 @@ public class EnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         mr = GetComponent<MeshRenderer>();
-        //enemyStateMachine = new StateMachine(gameObject);
-        //enemyStateMachine.Initialize(enemyStateMachine.idleState);
+        enemyStateMachine = new StateMachine(this.gameObject);
+        player = FindAnyObjectByType(typeof(CharacterController)).GetComponent<CharacterController>();
+        dropsFactory = FindAnyObjectByType<DropsFactory>().GetComponent<DropsFactory>();
+        //hand = GetComponentInChildren<Hands>().gameObject;
+        //foot = GetComponentInChildren<Leg>().gameObject;
+        if (enemyData.startChasing){
+            enemyStateMachine.Initialize(enemyStateMachine.chasingState);
+        } else
+        {
+            enemyStateMachine.Initialize(enemyStateMachine.waitingState);
+        }
+        
 
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("CharacterWeapon"))
         {
 
-            if (collision.TryGetComponent<Hands>(out Hands hands))
+            if (collision.TryGetComponent<Weapon>(out Weapon hands))
             {
                 this.GetComponent<HealthManager>().getDamage(hands.AttackDamage);
-            }
-            if (collision.TryGetComponent<Leg>(out Leg leg))
-            {
-                this.GetComponent<HealthManager>().getDamage(leg.AttackDamage);
             }
 
         }
@@ -57,35 +73,26 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         playerDistance = Vector2.Distance(transform.position, player.transform.position);
-        if (playerDistance < chaseDistance && playerDistance > stopDistance)
+        StateMachine.UpdateState();
+    }
+
+    public void changeStopAndChaseDistance(float stopDistance, float chaseDistance)
+    {
+        enemyData.chaseDistance = chaseDistance;
+        enemyData.stopDistance = stopDistance;
+    }
+
+    public void OnDie()
+    {
+        Drops drop = dropsFactory.Create(enemyData.dropId);
+        if (drop != null)
         {
-            ChasePlayer();
-        }
-        if (playerDistance <= stopDistance)
-        {
-            StopChasePlayer();
+            drop.gameObject.transform.position = transform.position;
         }
     }
 
-    private void StopChasePlayer()
+    public void changeEnemyData(EnemySriptableClass data)
     {
-        
-        hand.GetComponent<Hands>().Attack();
-        
-    }
-
-    private void ChasePlayer()
-    {
-        if (transform.position.x < player.transform.position.x && isFacingRight)
-        {
-            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * -1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
-            isFacingRight = false;
-        }
-        else if (transform.position.x > player.transform.position.x && !isFacingRight)
-        {
-            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * -1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
-            isFacingRight = true;
-        }
-        transform.position = Vector2.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+        enemyData = data;
     }
 }

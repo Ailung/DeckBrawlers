@@ -16,12 +16,12 @@ public class Running : MonoBehaviour, IState
     }
     public void Enter()
     {
-        Debug.Log("Entro en Running");
+
     }
 
     public void Exit()
     {
-        Debug.Log("Salio en Running");
+
     }
 
     public void UpdateState()

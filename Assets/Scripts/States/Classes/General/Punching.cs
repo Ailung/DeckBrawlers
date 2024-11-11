@@ -8,6 +8,7 @@ public class Punching : MonoBehaviour, IState
     private Hands hand;
     private CharacterController characterController;
     private EnemyController enemyController;
+    private float agilityStat = 0;
 
     public Punching(GameObject gameObject)
     {
@@ -17,21 +18,21 @@ public class Punching : MonoBehaviour, IState
         if (characterController != null)
         {
             hand = characterController.gameObject.GetComponentInChildren<Hands>(true);
+            agilityStat = characterController.StatAgility;
         }
         if (enemyController != null) 
         {
-            hand = characterController.gameObject.GetComponentInChildren<Hands>(true);
+            hand = enemyController.gameObject.GetComponentInChildren<Hands>(true);
         }
     }
     public void Enter()
     {
-        Debug.Log("Entro en Punching");
-        hand.Attack();
+        hand.Attack(agilityStat);
     }
 
     public void Exit()
     {
-        Debug.Log("Salio en Punching");
+
     }
 
     public void UpdateState()
@@ -42,7 +43,7 @@ public class Punching : MonoBehaviour, IState
         }
         else if (!hand.IsAttacking && enemyController != null) 
         {
-            enemyController.StateMachine.TransitionTo(characterController.StateMachine.idleState);
+            enemyController.StateMachine.TransitionTo(enemyController.StateMachine.chasingState);
         }
     }
 }

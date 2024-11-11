@@ -1038,6 +1038,10 @@ PrefabInstance:
     - target: {fileID: 1053422359197160761, guid: b7a48d5c126d1ea44a1ccb2dd74071a9, type: 3}
       propertyPath: appearanceCardScriptableClasses.Array.data[6]
       value: 
+      objectReference: {fileID: 11400000, guid: 14d94c7f698633846beb2949a8385069, type: 2}
+    - target: {fileID: 1053422359197160761, guid: b7a48d5c126d1ea44a1ccb2dd74071a9, type: 3}
+      propertyPath: appearanceCardScriptableClasses.Array.data[7]
+      value: 
       objectReference: {fileID: 11400000, guid: ed1bf0e0dc5efad429133a451b845e87, type: 2}
     - target: {fileID: 6139702220836298509, guid: b7a48d5c126d1ea44a1ccb2dd74071a9, type: 3}
       propertyPath: m_LocalPosition.x

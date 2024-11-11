@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f02c79efc8bfc98459dda775cb2df4e7, type: 3}
   m_Name: shape1
   m_EditorClassIdentifier: 
-  appearanceOnSprite: {fileID: 0}
+  appearanceOnSprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   appearanceOffSprite: {fileID: 0}
   appearanceAnimation: {fileID: 0}
   appearanceAudioClip: {fileID: 0}
@@ -21,5 +21,5 @@ MonoBehaviour:
   appearanceATK: 0
   appearanceDEX: 0
   appearanceSPD: 0
-  appearanceType: 0
-  appearanceColor: {r: 0, g: 0, b: 0, a: 0}
+  appearanceType: 3
+  appearanceColor: {r: 0.5149193, g: 0, b: 1, a: 1}

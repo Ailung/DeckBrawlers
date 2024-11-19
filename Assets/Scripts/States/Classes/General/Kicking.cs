@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR;
 
@@ -28,6 +29,12 @@ public class Kicking : MonoBehaviour, IState
     {
         
         leg.Attack();
+        if (characterController != null)
+        {
+            characterController.ComboList.Add("kick");
+            characterController.ResetComboTimer();
+            Debug.Log("append kick");
+        }
     }
 
     public void Exit()

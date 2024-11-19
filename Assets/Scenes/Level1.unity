@@ -954,6 +954,54 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo1.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo2.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo3.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo1.Array.data[0]
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo1.Array.data[1]
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo1.Array.data[2]
+      value: punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo2.Array.data[0]
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo2.Array.data[1]
+      value: punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo2.Array.data[2]
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo3.Array.data[0]
+      value: kick
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo3.Array.data[1]
+      value: punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
+      propertyPath: combo3.Array.data[2]
+      value: punch
+      objectReference: {fileID: 0}
+    - target: {fileID: 1347863935, guid: c810193579e0c0045b7ce7d251db8cb7, type: 3}
       propertyPath: appearanceCards.Array.size
       value: 0
       objectReference: {fileID: 0}

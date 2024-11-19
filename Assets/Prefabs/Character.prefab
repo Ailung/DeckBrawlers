@@ -526,6 +526,10 @@ MonoBehaviour:
   foot: {fileID: 3175964124219915854}
   appearanceCards:
   - {fileID: 11400000, guid: ed1bf0e0dc5efad429133a451b845e87, type: 2}
+  combo1: []
+  combo2: []
+  combo3: []
+  comboRefresh: 5
 --- !u!70 &3400456742453807802
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

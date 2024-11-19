@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class CharacterController : MonoBehaviour
@@ -14,6 +15,13 @@ public class CharacterController : MonoBehaviour
     private int statAttack = 0;
     private int statAgility = 0;
     [SerializeField] private AppearanceCardScriptableClass[] appearanceCards;
+    private List<string> comboList;
+    private string comboListTest;
+    [SerializeField] private List<string> combo1;
+    [SerializeField] private List<string> combo2;
+    [SerializeField] private List<string> combo3;
+    private float comboTimer;
+    [SerializeField] private float comboRefresh;
     private AppearanceCardScriptableClass appearanceHat = null;
     private AppearanceCardScriptableClass appearanceSkin = null;
     private AppearanceCardScriptableClass appearanceFace = null;
@@ -31,6 +39,7 @@ public class CharacterController : MonoBehaviour
     public AppearanceCardScriptableClass AppearanceBottom => appearanceBottom;
     public AppearanceCardScriptableClass AppearanceHands => appearanceHands;
     public AppearanceCardScriptableClass AppearanceShoes => appearanceShoes;
+    public List<string> ComboList => comboList;
 
     private bool isFacingRight = true;
     private StateMachine playerStateMachine;
@@ -105,11 +114,47 @@ public class CharacterController : MonoBehaviour
 
         healthManager.Initialize(baseHealth * (statHealth / 80) + baseHealth);
 
+        comboList = new List<string>();
+
     }
 
     void Update()
     {
         playerStateMachine.UpdateState();
+        if (comboList.Count == 3 && comboTimer < comboRefresh)
+        {
+            if (comboList.SequenceEqual(combo1))
+            {
+                Debug.Log("combo 1 lanzado");
+                comboList.Clear();
+                comboTimer = 0;
+            } else if (comboList.SequenceEqual(combo2)) 
+            {
+                Debug.Log("combo 2 lanzado");
+                comboList.Clear();
+                comboTimer = 0;
+            } else if (comboList.SequenceEqual(combo3))
+            {
+                Debug.Log("combo 3 lanzado");
+                comboList.Clear();
+                comboTimer = 0;
+            } else
+            {
+                Debug.Log("ningun lanzado");
+                comboList.Clear();
+                comboTimer = 0;
+            }
+        }
+
+        if (comboTimer > comboRefresh)
+        {
+            comboList.Clear();
+            comboTimer = 0;
+        } else
+        {
+            comboTimer += Time.deltaTime;
+        }
+        comboListTest = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -150,5 +195,10 @@ public class CharacterController : MonoBehaviour
         }
 
         rb.velocity = new Vector2((inputHorizontal * baseSpeed * (statSpeed / 10)) + (inputHorizontal * baseSpeed), (inputVertical * baseSpeed * (statSpeed / 10)) + (inputVertical * baseSpeed));
+    }
+
+    public void ResetComboTimer()
+    {
+        comboTimer = 0;
     }
 }

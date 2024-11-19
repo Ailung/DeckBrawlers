@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class Punching : MonoBehaviour, IState
@@ -28,6 +29,13 @@ public class Punching : MonoBehaviour, IState
     public void Enter()
     {
         hand.Attack(agilityStat);
+        if (characterController != null)
+        {
+            characterController.ComboList.Add("punch");
+            Debug.Log("append punch");
+            characterController.ResetComboTimer();
+        }
+        
     }
 
     public void Exit()

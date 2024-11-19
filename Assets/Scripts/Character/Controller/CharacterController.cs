@@ -42,6 +42,9 @@ public class CharacterController : MonoBehaviour
     public List<string> ComboList => comboList;
 
     private bool isFacingRight = true;
+
+    public bool GetIsFacingRight() { return isFacingRight; }
+
     private StateMachine playerStateMachine;
 
     private float horizontal;

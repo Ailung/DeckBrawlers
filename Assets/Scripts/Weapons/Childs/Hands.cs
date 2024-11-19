@@ -16,21 +16,29 @@ public class Hands : Weapon
     public override CharacterController Player => player;
     public override bool IsAttacking => isAttacking;
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        gameObject.SetActive(false);
+    }
+
     private void Awake()
     {
         player = this.gameObject.GetComponentInParent<CharacterController>();
         enemy = this.gameObject.GetComponentInParent<EnemyController>();
     }
-    public override void Attack()
+    public override void Attack(float agilityStat = 0)
     {
-        isAttacking = true;
-        gameObject.SetActive(true);
-        StartCoroutine(waitToEnd());
+        if (!isAttacking) 
+        {
+            isAttacking = true;
+            gameObject.SetActive(true);
+            StartCoroutine(waitToEnd(agilityStat));
+        }
     }
 
-    IEnumerator waitToEnd()
+    IEnumerator waitToEnd(float agilityStat)
     {
-        yield return new WaitForSeconds(attackSpeed);
+        yield return new WaitForSeconds((float)(attackSpeed * (agilityStat / 10) + attackSpeed));
         gameObject.SetActive(false);
         isAttacking = false;
     }

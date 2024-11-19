@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class Kicking : MonoBehaviour, IState
 {
@@ -14,17 +16,30 @@ public class Kicking : MonoBehaviour, IState
         m_gameObject = gameObject;
         m_gameObject.TryGetComponent<CharacterController>(out characterController);
         m_gameObject.TryGetComponent<EnemyController>(out enemyController);
-        leg = characterController.gameObject.GetComponentInChildren<Leg>(true);
+        if (characterController != null)
+        {
+            leg = characterController.gameObject.GetComponentInChildren<Leg>(true);
+        }
+        if (enemyController != null)
+        {
+            leg = enemyController.gameObject.GetComponentInChildren<Leg>(true);
+        }
     }
     public void Enter()
     {
-        Debug.Log("Entro en Punching");
+        
         leg.Attack();
+        if (characterController != null)
+        {
+            characterController.ComboList.Add("kick");
+            characterController.ResetComboTimer();
+            Debug.Log("append kick");
+        }
     }
 
     public void Exit()
     {
-        Debug.Log("Salio en Punching");
+        
     }
 
     public void UpdateState()

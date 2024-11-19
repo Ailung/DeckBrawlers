@@ -16,12 +16,12 @@ public class Running : MonoBehaviour, IState
     }
     public void Enter()
     {
-        Debug.Log("Entro en Running");
+
     }
 
     public void Exit()
     {
-        Debug.Log("Salio en Running");
+
     }
 
     public void UpdateState()
@@ -39,6 +39,11 @@ public class Running : MonoBehaviour, IState
         if (Input.GetKeyDown(KeyCode.V))
         {
             characterController.StateMachine.TransitionTo(characterController.StateMachine.kickingState);
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            characterController.StateMachine.TransitionTo(characterController.StateMachine.blockState);
         }
     }
 }

@@ -40,5 +40,10 @@ public class Running : MonoBehaviour, IState
         {
             characterController.StateMachine.TransitionTo(characterController.StateMachine.kickingState);
         }
+
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            characterController.StateMachine.TransitionTo(characterController.StateMachine.blockState);
+        }
     }
 }

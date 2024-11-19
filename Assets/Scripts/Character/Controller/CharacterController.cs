@@ -9,6 +9,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private int baseHealth = 100;
     [SerializeField] private GameObject hand;
     [SerializeField] private GameObject foot;
+    [SerializeField] private GameObject shield;
     private int statHealth = 0;
     private int statDefense = 0;
     private int statSpeed = 0;
@@ -16,7 +17,6 @@ public class CharacterController : MonoBehaviour
     private int statAgility = 0;
     [SerializeField] private AppearanceCardScriptableClass[] appearanceCards;
     private List<string> comboList;
-    private string comboListTest;
     [SerializeField] private List<string> combo1;
     [SerializeField] private List<string> combo2;
     [SerializeField] private List<string> combo3;
@@ -154,7 +154,6 @@ public class CharacterController : MonoBehaviour
         {
             comboTimer += Time.deltaTime;
         }
-        comboListTest = null;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -162,9 +161,15 @@ public class CharacterController : MonoBehaviour
         if (collision.CompareTag("EnemyWeapon"))
         {
 
-            if (collision.TryGetComponent<Weapon>(out Weapon weapon))
+            if (playerStateMachine.CurrentState is not Block)
             {
-                healthManager.getDamage(weapon.AttackDamage - weapon.AttackDamage * (statDefense / 10));
+                if (collision.TryGetComponent<Weapon>(out Weapon weapon))
+                {
+                    healthManager.getDamage(weapon.AttackDamage - weapon.AttackDamage * (statDefense / 10));
+                }
+            } else
+            {
+                shield.GetComponent<SpriteRenderer>().color = Color.red;
             }
 
         }
@@ -184,9 +189,12 @@ public class CharacterController : MonoBehaviour
         float inputHorizontal = Input.GetAxis("Horizontal");
         float inputVertical = Input.GetAxis("Vertical");
 
+
+        Debug.Log(playerStateMachine.CurrentState.GetType().Name);
+
         if (inputHorizontal < 0 && isFacingRight)
         {
-            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x *-1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
+            gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x * -1, gameObject.transform.localScale.y, gameObject.transform.localScale.z);
             isFacingRight = false;
         } else if (inputHorizontal > 0 && !isFacingRight)
         {
@@ -194,7 +202,11 @@ public class CharacterController : MonoBehaviour
             isFacingRight = true;
         }
 
-        rb.velocity = new Vector2((inputHorizontal * baseSpeed * (statSpeed / 10)) + (inputHorizontal * baseSpeed), (inputVertical * baseSpeed * (statSpeed / 10)) + (inputVertical * baseSpeed));
+        if (playerStateMachine.CurrentState is not Block)
+        {
+            rb.velocity = new Vector2((inputHorizontal * baseSpeed * (statSpeed / 10)) + (inputHorizontal * baseSpeed), (inputVertical * baseSpeed * (statSpeed / 10)) + (inputVertical * baseSpeed));
+        }
+        
     }
 
     public void ResetComboTimer()

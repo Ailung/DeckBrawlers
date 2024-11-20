@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CardManager : MonoBehaviour
+public class AppearanceCardManager : MonoBehaviour
 {
-    public static CardManager Instance;
+    public static AppearanceCardManager Instance;
     [SerializeField] private AppearanceCardScriptableClass[] appearanceCardScriptableClasses;
     private void Awake()
     {

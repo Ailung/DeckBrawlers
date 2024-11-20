@@ -64,7 +64,7 @@ public class CharacterController : MonoBehaviour
         playerStateMachine = new StateMachine(this.gameObject);
         healthManager = this.GetComponent<HealthManager>();
         playerStateMachine.Initialize(playerStateMachine.idleState);
-        appearanceCards = CardManager.Instance.GetAppearanceCards();
+        appearanceCards = AppearanceCardManager.Instance.GetAppearanceCards();
         GameManager.Instance.SetCharacter(this);
         
 

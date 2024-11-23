@@ -4,6 +4,6 @@ using UnityEngine;
 
 public abstract class SpellScriptableBehaviourClass : ScriptableObject
 {
-    public abstract void Behaviour();
+    public abstract void Behaviour(GameObject caster);
 
 }

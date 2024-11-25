@@ -1525,7 +1525,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1978361235699304646, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8024392
+      value: -1.6
       objectReference: {fileID: 0}
     - target: {fileID: 1978361235699304646, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1563,6 +1563,10 @@ PrefabInstance:
       propertyPath: enemyFactory
       value: 
       objectReference: {fileID: 1498010902}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemySriptableClasses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4037008688448756331, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: m_Name
       value: EnemyTrigger
@@ -1752,11 +1756,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3094283085470315139, guid: 0c5d0f287576b0243ad7a3e067ec945b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 33.94
+      value: 79.61
       objectReference: {fileID: 0}
     - target: {fileID: 3094283085470315139, guid: 0c5d0f287576b0243ad7a3e067ec945b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.75
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 3094283085470315139, guid: 0c5d0f287576b0243ad7a3e067ec945b, type: 3}
       propertyPath: m_LocalPosition.z

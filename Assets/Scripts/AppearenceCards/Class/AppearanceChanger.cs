@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class AppearanceChanger : MonoBehaviour
@@ -34,7 +35,7 @@ public class AppearanceChanger : MonoBehaviour
             switch (appearanceType)
             {
                 case AppearanceEnum.top:
-                    if (m_CharacterController.AppearanceTop.appearanceOnSprite != null)
+                    if (!m_CharacterController.AppearanceTop.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_CharacterController.AppearanceTop.appearanceOnSprite;
                         m_Renderer.color = m_CharacterController.AppearanceTop.appearanceColor;
@@ -46,7 +47,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.face:
-                    if (m_CharacterController.AppearanceFace.appearanceOnSprite != null)
+                    if (!m_CharacterController.AppearanceFace.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_CharacterController.AppearanceFace.appearanceOnSprite;
                         m_Renderer.color = m_CharacterController.AppearanceFace.appearanceColor;
@@ -59,7 +60,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.hands:
-                    if (m_CharacterController.AppearanceHands.appearanceOnSprite != null)
+                    if (!m_CharacterController.AppearanceHands.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_CharacterController.AppearanceHands.appearanceOnSprite;
                         m_Renderer.color = m_CharacterController.AppearanceHands.appearanceColor;
@@ -72,7 +73,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.hat:
-                    if (m_CharacterController.AppearanceHat.appearanceOnSprite != null)
+                    if (!m_CharacterController.AppearanceHat.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_CharacterController.AppearanceHat.appearanceOnSprite;
                         m_Renderer.color = m_CharacterController.AppearanceHat.appearanceColor;
@@ -85,7 +86,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.bottom:
-                    if (m_CharacterController.AppearanceBottom.appearanceOnSprite != null)
+                    if (!m_CharacterController.AppearanceBottom.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_CharacterController.AppearanceBottom.appearanceOnSprite;
                         m_Renderer.color = m_CharacterController.AppearanceBottom.appearanceColor;
@@ -98,7 +99,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.skin:
-                    if (m_CharacterController.AppearanceSkin.appearanceOnSprite != null)
+                    if (!m_CharacterController.AppearanceSkin.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_CharacterController.AppearanceSkin.appearanceOnSprite;
                         m_Renderer.color = m_CharacterController.AppearanceSkin.appearanceColor;
@@ -111,7 +112,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.shape:
-                    if (m_CharacterController.AppearanceShape.appearanceOnSprite != null)
+                    if (!m_CharacterController.AppearanceShape.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_CharacterController.AppearanceShape.appearanceOnSprite;
                         m_Renderer.color = m_CharacterController.AppearanceShape.appearanceColor;
@@ -124,7 +125,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.shoes:
-                    if (m_CharacterController.AppearanceShoes.appearanceOnSprite != null)
+                    if (!m_CharacterController.AppearanceShoes.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_CharacterController.AppearanceShoes.appearanceOnSprite;
                         m_Renderer.color = m_CharacterController.AppearanceShoes.appearanceColor;
@@ -146,7 +147,7 @@ public class AppearanceChanger : MonoBehaviour
             switch (appearanceType)
             {
                 case AppearanceEnum.top:
-                    if (m_EnemyController.AppearanceTop.appearanceOnSprite != null)
+                    if (!m_EnemyController.AppearanceTop.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceTop.appearanceOnSprite;
                         m_Renderer.color = m_EnemyController.AppearanceTop.appearanceColor;
@@ -159,7 +160,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.face:
-                    if (m_EnemyController.AppearanceFace.appearanceOnSprite != null)
+                    if (!m_EnemyController.AppearanceFace.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceFace.appearanceOnSprite;
                         m_Renderer.color = m_EnemyController.AppearanceFace.appearanceColor;
@@ -172,7 +173,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.hands:
-                    if (m_EnemyController.AppearanceHands.appearanceOnSprite != null)
+                    if (!m_EnemyController.AppearanceHands.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceHands.appearanceOnSprite;
                         m_Renderer.color = m_EnemyController.AppearanceHands.appearanceColor;
@@ -185,7 +186,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.hat:
-                    if (m_EnemyController.AppearanceHat.appearanceOnSprite != null)
+                    if (!m_EnemyController.AppearanceHat.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceHat.appearanceOnSprite;
                         m_Renderer.color = m_EnemyController.AppearanceHat.appearanceColor;
@@ -198,7 +199,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.bottom:
-                    if (m_EnemyController.AppearanceBottom.appearanceOnSprite != null)
+                    if (!m_EnemyController.AppearanceBottom.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceBottom.appearanceOnSprite;
                         m_Renderer.color = m_EnemyController.AppearanceBottom.appearanceColor;
@@ -211,7 +212,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.skin:
-                    if (m_EnemyController.AppearanceSkin.appearanceOnSprite != null)
+                    if (!m_EnemyController.AppearanceSkin.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceSkin.appearanceOnSprite;
                         m_Renderer.color = m_EnemyController.AppearanceSkin.appearanceColor;
@@ -224,7 +225,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.shape:
-                    if (m_EnemyController.AppearanceShape.appearanceOnSprite != null)
+                    if (!m_EnemyController.AppearanceShape.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceShape.appearanceOnSprite;
                         m_Renderer.color = m_EnemyController.AppearanceShape.appearanceColor;
@@ -237,7 +238,7 @@ public class AppearanceChanger : MonoBehaviour
                     break;
 
                 case AppearanceEnum.shoes:
-                    if (m_EnemyController.AppearanceShoes.appearanceOnSprite != null)
+                    if (!m_EnemyController.AppearanceShoes.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceShoes.appearanceOnSprite;
                         m_Renderer.color = m_EnemyController.AppearanceShoes.appearanceColor;

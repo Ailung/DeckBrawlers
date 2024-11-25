@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Card1
   m_EditorClassIdentifier: 
   orangeSpell: {fileID: 11400000, guid: d41a4e9e60f0a204eb7efc225484fa88, type: 2}
-  blueSpell: {fileID: 0}
+  blueSpell: {fileID: 11400000, guid: 373e146bef160a24cbf52a46beba03a0, type: 2}
   greenSpell: {fileID: 0}
+  cardAppearance: {fileID: 0}

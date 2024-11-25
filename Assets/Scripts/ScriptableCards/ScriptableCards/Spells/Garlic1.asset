@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 585e526459cdcb042bb849feb2042cb0, type: 3}
   m_Name: Garlic1
   m_EditorClassIdentifier: 
-  sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  prefab: {fileID: 8318017101122333482, guid: b4c65d84e50079b449934f3e38d30a06, type: 3}
   color: {r: 1, g: 0.2971698, b: 0.2971698, a: 1}
   damage: 5
   speed: 10
   size: 3
-  animationClip: {fileID: 0}
+  animationClip: {fileID: 7400000, guid: cfae89dc21d175b4eb7f6252adce0192, type: 2}

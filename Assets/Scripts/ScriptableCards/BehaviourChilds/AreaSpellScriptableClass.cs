@@ -11,13 +11,23 @@ public class AreaSpellScriptableClass : SpellScriptableBehaviourClass
     [SerializeField] int damage; 
     [SerializeField] float speed; 
     [SerializeField] float size;
-    [SerializeField] AnimationClip animationClip;
+    [SerializeField] public AnimationClip animationClip;
+
+    public GameObject Prefab { get { return prefab; } }
+    public Color Color { get { return color; } }
+    public int Damage { get { return damage; } }
+    public float Speed { get { return speed; } }
+    public float Size { get { return size; } }
+    public AnimationClip AnimationClip { get { return animationClip; } }
+
 
     protected Vector3 direction;
 
     public override void Behaviour(GameObject caster) {
-        GameObject spawnedGarlic = Instantiate(prefab);
-        spawnedGarlic.transform.position = caster.transform.position;
-        spawnedGarlic.transform.parent = caster.transform;
+        GameObject spawnedAreaSpell = Instantiate(prefab);
+        spawnedAreaSpell.transform.position = caster.transform.position;
+        spawnedAreaSpell.transform.parent = caster.transform;
+        spawnedAreaSpell.GetComponent<Animation>().clip = animationClip;
+        spawnedAreaSpell.GetComponent<AreaSpellControllerClass>().spellData = this;
     }
 }

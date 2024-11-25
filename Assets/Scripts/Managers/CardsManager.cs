@@ -5,49 +5,39 @@ using UnityEngine.UI;
 
 public class CardsManager : MonoBehaviour
 {
-    public List<Card> deck = new List<Card>();
-    public List<Card> discardPile = new List<Card>();
+    public List<SpellScriptableCardClass> deck = new List<SpellScriptableCardClass>();
+    public List<SpellScriptableCardClass> discardPile = new List<SpellScriptableCardClass>();
 
-    public Transform[] cardSlots;
-    public bool[] availableCardSlots;
+    [SerializeField] private Transform cardSlot;
+    private bool cardSlotIsAvailable;
 
-    public Text deckSizeText;
-    public Text discardSizeText;
-
-    private Card randCard;
+    private SpellScriptableCardClass selectedCard;
 
     public void DrawCard()
     {
         if (deck.Count >= 1)
         {
-            randCard = deck[Random.Range(0, deck.Count)];
-            for (int i = 0; i < cardSlots.Length; i++)
-            {
-                if (availableCardSlots[i] == true)
+            selectedCard = deck[Random.Range(0, deck.Count)];
+        
+           if (cardSlotIsAvailable == true)
+           {
+                selectedCard.CardAppearance.SetActive(true);
+                selectedCard.CardAppearance.transform.position = cardSlot.position;
+                cardSlotIsAvailable = false;
+                deck.Remove(selectedCard);
+
+                if (deck.Count <= 0)
                 {
-                    randCard.gameObject.SetActive(true);
-                    randCard.handIndex = i;
-                    randCard.transform.position = cardSlots[i].position;
-                    randCard.hasBeenPlayed = false;
-                    availableCardSlots[i] = false;
-                    deck.Remove(randCard);
+                    foreach (SpellScriptableCardClass card in discardPile)
+                    {
+                        deck.Add(card);
+                    }
+                    discardPile.Clear();
                     return;
                 }
             }
+        
         }
     }
 
-    private void Update()
-    {
-        deckSizeText.text = deck.Count.ToString();
-        discardSizeText.text = discardPile.Count.ToString();
-        if (deck.Count <= 0)
-        {
-            foreach (Card card in discardPile) 
-            {
-                deck.Add(card);
-            }
-            discardPile.Clear();
-        }
-    }
 }

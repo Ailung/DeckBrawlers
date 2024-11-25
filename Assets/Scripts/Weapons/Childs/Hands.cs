@@ -32,6 +32,7 @@ public class Hands : Weapon
         {
             isAttacking = true;
             gameObject.SetActive(true);
+            gameObject.GetComponent<BoxCollider2D>().enabled = true;
             StartCoroutine(waitToEnd(agilityStat));
         }
     }

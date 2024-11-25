@@ -40,7 +40,7 @@ public class Punching : MonoBehaviour, IState
 
     public void Exit()
     {
-
+        Debug.Log("stop punch");
     }
 
     public void UpdateState()

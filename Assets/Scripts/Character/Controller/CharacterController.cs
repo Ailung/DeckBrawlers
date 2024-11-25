@@ -42,6 +42,7 @@ public class CharacterController : MonoBehaviour
     public List<string> ComboList => comboList;
 
     private bool isFacingRight = true;
+    private bool animationShield = false;
 
     public bool GetIsFacingRight() { return isFacingRight; }
 
@@ -66,7 +67,8 @@ public class CharacterController : MonoBehaviour
         playerStateMachine.Initialize(playerStateMachine.idleState);
         appearanceCards = AppearanceCardManager.Instance.GetAppearanceCards();
         GameManager.Instance.SetCharacter(this);
-        
+        shield.GetComponent<SpriteRenderer>().color = new Color(0, 1, 1, 0.25f);
+
 
         foreach (AppearanceCardScriptableClass card in appearanceCards)
         {
@@ -169,10 +171,16 @@ public class CharacterController : MonoBehaviour
                 if (collision.TryGetComponent<Weapon>(out Weapon weapon))
                 {
                     healthManager.getDamage(weapon.AttackDamage - weapon.AttackDamage * (statDefense / 10));
+                    rb.AddForce(Vector2.right, ForceMode2D.Impulse);
+                    weapon.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 }
             } else
             {
-                shield.GetComponent<SpriteRenderer>().color = Color.red;
+                if (collision.TryGetComponent<Weapon>(out Weapon weapon))
+                {
+                    weapon.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                    StartCoroutine(ChangeColorShield());
+                }
             }
 
         }
@@ -185,6 +193,16 @@ public class CharacterController : MonoBehaviour
             }
 
         }
+    }
+
+    private IEnumerator ChangeColorShield()
+    {
+
+        yield return new WaitForSeconds(1f);
+        shield.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.25f);
+        yield return new WaitForSeconds(1f);
+        shield.GetComponent<SpriteRenderer>().color = new Color(0,1,1,0.25f);
+        yield return new WaitForSeconds(1f);
     }
 
     private void FixedUpdate()
@@ -215,5 +233,10 @@ public class CharacterController : MonoBehaviour
     public void ResetComboTimer()
     {
         comboTimer = 0;
+    }
+
+    public void Shield(bool state)
+    {
+        shield.gameObject.SetActive(state);
     }
 }

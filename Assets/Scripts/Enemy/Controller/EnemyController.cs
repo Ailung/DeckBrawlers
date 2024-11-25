@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     //[SerializeField] public bool startChasing;
 
     [SerializeField] EnemySriptableClass enemyData;
+    [SerializeField] private AppearanceCardScriptableClass[] appearanceCards;
     private float playerDistance;
 
     private CharacterController player;
@@ -21,6 +22,23 @@ public class EnemyController : MonoBehaviour
     private bool isFacingRight = false;
     private StateMachine enemyStateMachine;
     private DropsFactory dropsFactory;
+    private AppearanceCardScriptableClass appearanceHat = null;
+    private AppearanceCardScriptableClass appearanceSkin = null;
+    private AppearanceCardScriptableClass appearanceFace = null;
+    private AppearanceCardScriptableClass appearanceShape = null;
+    private AppearanceCardScriptableClass appearanceTop = null;
+    private AppearanceCardScriptableClass appearanceBottom = null;
+    private AppearanceCardScriptableClass appearanceHands = null;
+    private AppearanceCardScriptableClass appearanceShoes = null;
+
+    public AppearanceCardScriptableClass AppearanceHat => appearanceHat;
+    public AppearanceCardScriptableClass AppearanceSkin => appearanceSkin;
+    public AppearanceCardScriptableClass AppearanceFace => appearanceFace;
+    public AppearanceCardScriptableClass AppearanceShape => appearanceShape;
+    public AppearanceCardScriptableClass AppearanceTop => appearanceTop;
+    public AppearanceCardScriptableClass AppearanceBottom => appearanceBottom;
+    public AppearanceCardScriptableClass AppearanceHands => appearanceHands;
+    public AppearanceCardScriptableClass AppearanceShoes => appearanceShoes;
 
     public StateMachine StateMachine => enemyStateMachine;
     public float ChaseDistance => enemyData.chaseDistance;
@@ -62,9 +80,11 @@ public class EnemyController : MonoBehaviour
         if (collision.CompareTag("CharacterWeapon"))
         {
 
-            if (collision.TryGetComponent<Weapon>(out Weapon hands))
+            if (collision.TryGetComponent<Weapon>(out Weapon weapon))
             {
-                this.GetComponent<HealthManager>().getDamage(hands.AttackDamage);
+                this.GetComponent<HealthManager>().getDamage(weapon.AttackDamage);
+                rb.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+                weapon.gameObject.GetComponent<BoxCollider2D>().enabled = false;
             }
 
         }

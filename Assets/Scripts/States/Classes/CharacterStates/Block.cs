@@ -17,16 +17,18 @@ public class Block : MonoBehaviour, IState
     {
         Debug.Log("entre a block");
         characterController.Rb.velocity = Vector3.zero;
+        characterController.Shield(true);
     }
 
     public void Exit()
     {
         Debug.Log("sali de block");
+        characterController.Shield(false);
     }
 
     public void UpdateState()
     {
-
+        characterController.Rb.velocity = Vector3.zero;
         if (characterController != null)
         {
             if (Input.GetKeyUp(KeyCode.B))

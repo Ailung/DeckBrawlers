@@ -26,12 +26,14 @@ public class BulletSpellControllerClass : MonoBehaviour
         if (collision.CompareTag("Enemy") && spellData.Tag == "Player")
         {
             collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
+            collision.GetComponent<EnemyController>().DamageStun();
             this.gameObject.GetComponent<Bullet>().Deactivate();
 
         }
-        if (collision.CompareTag("player") && spellData.Tag == "Enemy")
+        if (collision.CompareTag("Player") && spellData.Tag == "Enemy")
         {
             collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
+            collision.GetComponent<CharacterController>().DamageStun();
             this.gameObject.GetComponent<Bullet>().Deactivate();
         }
     }

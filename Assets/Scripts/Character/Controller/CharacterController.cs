@@ -180,7 +180,7 @@ public class CharacterController : MonoBehaviour
                 if (collision.TryGetComponent<Weapon>(out Weapon weapon))
                 {
                     healthManager.getDamage(weapon.AttackDamage - weapon.AttackDamage * (statDefense / 10));
-                    rb.AddForce(Vector2.right, ForceMode2D.Impulse);
+                    DamageStun();
                     weapon.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 }
             } else
@@ -217,10 +217,7 @@ public class CharacterController : MonoBehaviour
     private IEnumerator stunned()
     {
         yield return new WaitForSeconds(1f);
-        isStunned = true;
-        yield return new WaitForSeconds(1f);
         isStunned = false;
-        yield return new WaitForSeconds(1f);
     }
 
     private void FixedUpdate()
@@ -241,7 +238,7 @@ public class CharacterController : MonoBehaviour
             isFacingRight = true;
         }
 
-        if (playerStateMachine.CurrentState is not Block)
+        if (playerStateMachine.CurrentState is not Block && !isStunned)
         {
             rb.velocity = new Vector2((inputHorizontal * baseSpeed * (statSpeed / 10)) + (inputHorizontal * baseSpeed), (inputVertical * baseSpeed * (statSpeed / 10)) + (inputVertical * baseSpeed));
         }
@@ -256,5 +253,12 @@ public class CharacterController : MonoBehaviour
     public void Shield(bool state)
     {
         shield.gameObject.SetActive(state);
+    }
+
+    public void DamageStun()
+    {
+        isStunned = true;
+        rb.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
+        StartCoroutine(stunned());
     }
 }

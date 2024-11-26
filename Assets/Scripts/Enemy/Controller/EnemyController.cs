@@ -152,9 +152,9 @@ public class EnemyController : MonoBehaviour
             if (collision.TryGetComponent<Weapon>(out Weapon weapon))
             {
                 this.GetComponent<HealthManager>().getDamage(weapon.AttackDamage);
-                rb.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
                 weapon.gameObject.GetComponent<BoxCollider2D>().enabled = false;
-                StartCoroutine(stunned());
+                DamageStun();
+                
             }
 
         }
@@ -234,5 +234,11 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         isStunned = false;
         yield return new WaitForSeconds(1f);
+    }
+
+    public void DamageStun()
+    {
+        rb.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
+        StartCoroutine(stunned());
     }
 }

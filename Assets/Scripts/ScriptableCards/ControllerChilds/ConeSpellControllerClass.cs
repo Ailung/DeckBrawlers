@@ -33,11 +33,13 @@ public class ConeSpellControllerClass : MonoBehaviour
         {
 
             collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
+            collision.GetComponent<EnemyController>().DamageStun();
             damagedEnemies.Add(gameObject);
         }
         if (collision.CompareTag("Player") && !damagedEnemies.Contains(collision.gameObject) && spellData.Tag == "Enemy")
         {
             collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
+            collision.GetComponent<CharacterController>().DamageStun();
             damagedEnemies.Add(gameObject);
         }
     }

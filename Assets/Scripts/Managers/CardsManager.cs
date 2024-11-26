@@ -5,49 +5,46 @@ using UnityEngine.UI;
 
 public class CardsManager : MonoBehaviour
 {
-    public List<Card> deck = new List<Card>();
-    public List<Card> discardPile = new List<Card>();
+    public List<SpellScriptableCardClass> deck = new List<SpellScriptableCardClass>();
+    public List<SpellScriptableCardClass> discardPile = new List<SpellScriptableCardClass>();
 
-    public Transform[] cardSlots;
-    public bool[] availableCardSlots;
+    [SerializeField] private GameObject cardSlot;
+    private SpriteRenderer cardSlotSprite;
 
-    public Text deckSizeText;
-    public Text discardSizeText;
+    private SpellScriptableCardClass selectedCard;
+    public SpellScriptableCardClass SelectedCard { get { return selectedCard; } }
 
-    private Card randCard;
+    private void Awake()
+    {
+        cardSlotSprite = cardSlot.GetComponent<SpriteRenderer>();
+        DrawCard();
+    }
 
     public void DrawCard()
     {
-        if (deck.Count >= 1)
-        {
-            randCard = deck[Random.Range(0, deck.Count)];
-            for (int i = 0; i < cardSlots.Length; i++)
-            {
-                if (availableCardSlots[i] == true)
-                {
-                    randCard.gameObject.SetActive(true);
-                    randCard.handIndex = i;
-                    randCard.transform.position = cardSlots[i].position;
-                    randCard.hasBeenPlayed = false;
-                    availableCardSlots[i] = false;
-                    deck.Remove(randCard);
-                    return;
-                }
-            }
-        }
-    }
-
-    private void Update()
-    {
-        deckSizeText.text = deck.Count.ToString();
-        discardSizeText.text = discardPile.Count.ToString();
+        selectedCard = deck[Random.Range(0, deck.Count)];
+        cardSlotSprite.sprite = selectedCard.CardAppearance;
+        deck.Remove(selectedCard);
+        
         if (deck.Count <= 0)
         {
-            foreach (Card card in discardPile) 
+            foreach (SpellScriptableCardClass card in discardPile)
             {
                 deck.Add(card);
             }
             discardPile.Clear();
+            return;
         }
+
     }
+    public void UseCard(string spellColor, GameObject caster)
+    {
+        if(spellColor == "orange") selectedCard.OrangeSpell.Behaviour(caster);
+        else if (spellColor == "blue") selectedCard.BlueSpell.Behaviour(caster);
+        else if (spellColor == "green") selectedCard.GreenSpell.Behaviour(caster);
+
+        discardPile.Add(selectedCard);
+        DrawCard();
+    }
+
 }

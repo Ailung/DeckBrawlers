@@ -59,15 +59,18 @@ public class CharacterController : MonoBehaviour
 
     public Rigidbody2D Rb => rb;
 
+    private CardsManager cardsManager;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         playerStateMachine = new StateMachine(this.gameObject);
         healthManager = this.GetComponent<HealthManager>();
         playerStateMachine.Initialize(playerStateMachine.idleState);
-        appearanceCards = CardManager.Instance.GetAppearanceCards();
+        appearanceCards = AppearanceCardManager.Instance.GetAppearanceCards();
         GameManager.Instance.SetCharacter(this);
         shield.GetComponent<SpriteRenderer>().color = new Color(0, 1, 1, 0.25f);
+        cardsManager = FindObjectOfType<CardsManager>();
 
 
         foreach (AppearanceCardScriptableClass card in appearanceCards)
@@ -133,17 +136,22 @@ public class CharacterController : MonoBehaviour
                 Debug.Log("combo 1 lanzado");
                 comboList.Clear();
                 comboTimer = 0;
+                cardsManager.UseCard("orange", this.gameObject);
             } else if (comboList.SequenceEqual(combo2)) 
             {
                 Debug.Log("combo 2 lanzado");
                 comboList.Clear();
                 comboTimer = 0;
-            } else if (comboList.SequenceEqual(combo3))
+                cardsManager.UseCard("blue", this.gameObject);
+            }
+            else if (comboList.SequenceEqual(combo3))
             {
                 Debug.Log("combo 3 lanzado");
                 comboList.Clear();
                 comboTimer = 0;
-            } else
+                cardsManager.UseCard("green", this.gameObject);
+            }
+            else
             {
                 Debug.Log("ningun lanzado");
                 comboList.Clear();

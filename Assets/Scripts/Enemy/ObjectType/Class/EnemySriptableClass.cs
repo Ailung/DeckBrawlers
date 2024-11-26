@@ -11,5 +11,6 @@ public class EnemySriptableClass : ScriptableObject
     [SerializeField] public float stopDistance;
     [SerializeField] public float chasingDistance = 0.5f;
     [SerializeField] public string dropId;
-    [SerializeField] public bool startChasing;
+    [SerializeField] public EnemyStateEnum enemyStateEnum;
+    [SerializeField] public SpellScriptableCardClass selectedCard;
 }

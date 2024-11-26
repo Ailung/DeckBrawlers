@@ -15,6 +15,7 @@ public class StateMachine : MonoBehaviour
     public Kicking kickingState;
     public Chasing chasingState;
     public Waiting waitingState;
+    public Casting castingState;
     public Block blockState;
     //public GameObject gameObject;
 
@@ -26,6 +27,7 @@ public class StateMachine : MonoBehaviour
         this.kickingState = new Kicking(gameObject);
         this.chasingState = new Chasing(gameObject);
         this.waitingState = new Waiting(gameObject);
+        this.castingState = new Casting(gameObject);
         this.blockState = new Block(gameObject);
     }
 

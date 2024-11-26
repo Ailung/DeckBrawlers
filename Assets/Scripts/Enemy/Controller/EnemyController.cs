@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Random = System.Random;
 
 public class EnemyController : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] EnemySriptableClass enemyData;
     [SerializeField] private AppearanceCardScriptableClass[] appearanceCards;
     private float playerDistance;
+    private Random random = new Random();
 
     private CharacterController player;
     private GameObject hand;
@@ -66,11 +68,24 @@ public class EnemyController : MonoBehaviour
         dropsFactory = FindAnyObjectByType<DropsFactory>().GetComponent<DropsFactory>();
         //hand = GetComponentInChildren<Hands>().gameObject;
         //foot = GetComponentInChildren<Leg>().gameObject;
-        if (enemyData.startChasing){
-            enemyStateMachine.Initialize(enemyStateMachine.chasingState);
-        } else
+        switch (enemyData.enemyStateEnum) 
         {
-            enemyStateMachine.Initialize(enemyStateMachine.waitingState);
+            case EnemyStateEnum.chasing:
+                enemyStateMachine.Initialize(enemyStateMachine.chasingState);
+                break;
+
+            case EnemyStateEnum.waiting:
+                enemyStateMachine.Initialize(enemyStateMachine.waitingState);
+                break;
+
+            case EnemyStateEnum.casting:
+                enemyStateMachine.Initialize(enemyStateMachine.castingState);
+                InvokeRepeating("castAttack", 5f, 5f);
+                break;
+
+            default:
+                enemyStateMachine.Initialize(enemyStateMachine.waitingState);
+                break;
         }
 
         foreach (AppearanceCardScriptableClass card in appearanceCards)
@@ -147,6 +162,9 @@ public class EnemyController : MonoBehaviour
     {
         playerDistance = Vector2.Distance(transform.position, player.transform.position);
         StateMachine.UpdateState();
+
+        
+
     }
 
     public void changeStopAndChaseDistance(float stopDistance, float chaseDistance)
@@ -177,5 +195,30 @@ public class EnemyController : MonoBehaviour
         
     }
 
-
+    private void castAttack()
+    {
+        int spell = random.Next(1, 3);
+        if (enemyStateMachine.CurrentState is Casting)
+        {
+            if (enemyData.selectedCard != null && enemyData.selectedCard.OrangeSpell != null && spell < 1)
+            {
+                Debug.Log("combo 1 lanzado");
+                enemyData.selectedCard.OrangeSpell.Behaviour(this.gameObject);
+            }
+            else if (enemyData.selectedCard != null && enemyData.selectedCard.GreenSpell != null && spell > 1 && spell < 2)
+            {
+                Debug.Log("combo 2 lanzado");
+                enemyData.selectedCard.GreenSpell.Behaviour(this.gameObject);
+            }
+            else if (enemyData.selectedCard != null && enemyData.selectedCard.BlueSpell != null && spell > 2 && spell < 1)
+            {
+                Debug.Log("combo 3 lanzado");
+                enemyData.selectedCard.BlueSpell.Behaviour(this.gameObject);
+            }
+            else
+            {
+                Debug.Log("ningun lanzado");
+            }
+        }
+    }
 }

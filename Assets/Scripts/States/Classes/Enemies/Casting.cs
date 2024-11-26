@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Waiting : MonoBehaviour, IState
+public class Casting : MonoBehaviour, IState
 {
     private GameObject parentGameObject;
     private CharacterController characterController;
     private EnemyController enemyController;
 
-    public Waiting(GameObject gameObject)
+    public Casting(GameObject gameObject)
     {
         parentGameObject = gameObject;
         parentGameObject.TryGetComponent<EnemyController>(out enemyController);
@@ -16,12 +16,12 @@ public class Waiting : MonoBehaviour, IState
 
     public void Enter()
     {
-        
+
     }
 
     public void Exit()
     {
-        
+
     }
 
     public void UpdateState()
@@ -54,10 +54,5 @@ public class Waiting : MonoBehaviour, IState
             }
             enemyController.transform.position = Vector2.MoveTowards(enemyController.transform.position, enemyController.CharacterController.transform.position, enemyController.Speed * Time.deltaTime * -1 * 0.5f);
         }
-        if (enemyController.PlayerDistance <= enemyController.ChaseDistance)
-        {
-            enemyController.StateMachine.TransitionTo(enemyController.StateMachine.chasingState);
-        }
     }
-
 }

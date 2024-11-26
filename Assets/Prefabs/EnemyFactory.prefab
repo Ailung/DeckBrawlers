@@ -47,4 +47,7 @@ MonoBehaviour:
   Enemies:
   - {fileID: 11400000, guid: afd9244ec082a37469be3543caddc6d9, type: 2}
   - {fileID: 11400000, guid: 0947f1717dc2c714f8896ba0f57c4dc5, type: 2}
+  - {fileID: 11400000, guid: a70e8465a46811643ad683b63219821f, type: 2}
+  Datas:
+  - {fileID: 11400000, guid: bfe5ce081dc3d0f4696eee2f4b0cea27, type: 2}
   enemyPrefab: {fileID: 8290562355641553743, guid: 92ae669c88fe11a4aa4a6fa5595d976b, type: 3}

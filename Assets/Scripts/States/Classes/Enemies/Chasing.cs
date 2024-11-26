@@ -26,24 +26,24 @@ public class Chasing : MonoBehaviour, IState
 
     public void UpdateState()
     {
-        //if (enemyController.PlayerDistance > enemyController.ChasingDistance)
-        //{
-        //    if (enemyController.transform.position.x < enemyController.CharacterController.transform.position.x && enemyController.IsFacingRight)
-        //    {
-        //        enemyController.transform.localScale = new Vector3(enemyController.transform.localScale.x * -1, enemyController.transform.localScale.y, enemyController.transform.localScale.z);
-        //        enemyController.IsFacingRight = false;
-        //    }
-        //    else if (enemyController.transform.position.x > enemyController.CharacterController.transform.position.x && !enemyController.IsFacingRight)
-        //    {
-        //        enemyController.transform.localScale = new Vector3(enemyController.transform.localScale.x * -1, enemyController.transform.localScale.y, enemyController.transform.localScale.z);
-        //        enemyController.IsFacingRight = true;
-        //    }
-        //    enemyController.transform.position = Vector2.MoveTowards(enemyController.transform.position, enemyController.CharacterController.transform.position, enemyController.Speed * Time.deltaTime);
-        //}
+        if (enemyController.PlayerDistance > enemyController.ChasingDistance)
+        {
+            if (enemyController.transform.position.x < enemyController.CharacterController.transform.position.x && enemyController.IsFacingRight)
+            {
+                enemyController.transform.localScale = new Vector3(enemyController.transform.localScale.x * -1, enemyController.transform.localScale.y, enemyController.transform.localScale.z);
+                enemyController.IsFacingRight = false;
+            }
+            else if (enemyController.transform.position.x > enemyController.CharacterController.transform.position.x && !enemyController.IsFacingRight)
+            {
+                enemyController.transform.localScale = new Vector3(enemyController.transform.localScale.x * -1, enemyController.transform.localScale.y, enemyController.transform.localScale.z);
+                enemyController.IsFacingRight = true;
+            }
+            enemyController.transform.position = Vector2.MoveTowards(enemyController.transform.position, enemyController.CharacterController.transform.position, enemyController.Speed * Time.deltaTime);
+        }
 
-        //if (enemyController.PlayerDistance <= enemyController.ChasingDistance)
-        //{
-        //    enemyController.StateMachine.TransitionTo(enemyController.StateMachine.punchingState);
-        //}
+        if (enemyController.PlayerDistance <= enemyController.ChasingDistance)
+        {
+            enemyController.StateMachine.TransitionTo(enemyController.StateMachine.punchingState);
+        }
     }
 }

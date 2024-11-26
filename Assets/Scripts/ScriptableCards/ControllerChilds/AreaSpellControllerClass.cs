@@ -12,9 +12,12 @@ public class AreaSpellControllerClass : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, GetAnimationLength());
         damagedEnemies = new List<GameObject>();
 
+    }
+    private void Awake()
+    {
+        Destroy(gameObject, GetAnimationLength());
     }
 
     public int GetSpellDamage()

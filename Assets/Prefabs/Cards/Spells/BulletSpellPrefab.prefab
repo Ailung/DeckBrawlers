@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4004610022304227744}
   - component: {fileID: 1726269466059143560}
   - component: {fileID: 4523604511098479873}
+  - component: {fileID: -3685626300785952832}
   m_Layer: 0
   m_Name: BulletSpellPrefab
   m_TagString: Untagged
@@ -132,7 +133,16 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: f70f310ff10422a47ba99365e51dfcb4, type: 2}
+  - {fileID: 7400000, guid: 89293b2dba5048c4386e1634ecd20524, type: 2}
+  - {fileID: 7400000, guid: cae9a07b214a7b04d8d2d4eefc0212e6, type: 2}
+  - {fileID: 7400000, guid: 600ed3ff732258f4ea8b8da13d556eff, type: 2}
+  - {fileID: 7400000, guid: 9cbc575678411414c83171703ea9a968, type: 2}
+  - {fileID: 7400000, guid: ad018161d63c949429abd954a5f31bd9, type: 2}
+  - {fileID: 7400000, guid: fc942ff4024e99a4a9b1ff03d2a8fed2, type: 2}
+  - {fileID: 7400000, guid: 68b084a520381d247a6706230cef10df, type: 2}
+  - {fileID: 7400000, guid: 0b9b56a2a0e5eba45831531d228b63e9, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -152,3 +162,38 @@ MonoBehaviour:
   lifeTime: 5
   lerpSpeedRotation: 0
   damage: 0
+--- !u!58 &-3685626300785952832
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791785011473192917}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.06

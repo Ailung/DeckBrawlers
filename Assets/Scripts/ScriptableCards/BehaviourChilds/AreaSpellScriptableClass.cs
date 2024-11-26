@@ -23,11 +23,15 @@ public class AreaSpellScriptableClass : SpellScriptableBehaviourClass
 
     protected Vector3 direction;
 
-    public override void Behaviour(GameObject caster) {
+    public override void Behaviour(GameObject caster) 
+    {
         GameObject spawnedAreaSpell = Instantiate(prefab);
+
         spawnedAreaSpell.transform.position = caster.transform.position;
         spawnedAreaSpell.transform.parent = caster.transform;
+
         spawnedAreaSpell.GetComponent<Animation>().clip = animationClip;
         spawnedAreaSpell.GetComponent<AreaSpellControllerClass>().spellData = this;
+
     }
 }

@@ -26,6 +26,7 @@ public class BulletSpellControllerClass : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
+            this.gameObject.GetComponent<Bullet>().Deactivate();
 
         }
     }

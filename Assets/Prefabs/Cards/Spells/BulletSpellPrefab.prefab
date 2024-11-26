@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5127697298428136073}
   - component: {fileID: 6098481919917876265}
   - component: {fileID: 4004610022304227744}
+  - component: {fileID: 1726269466059143560}
+  - component: {fileID: 4523604511098479873}
   m_Layer: 0
   m_Name: BulletSpellPrefab
   m_TagString: Untagged
@@ -72,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -647691767
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 402088405, guid: 3b09fe3c720e86d44865829a0d293aa3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,3 +122,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spellData: {fileID: 0}
+--- !u!111 &1726269466059143560
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791785011473192917}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &4523604511098479873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6791785011473192917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65d2e23e5cb31d940a0f380d7063c58e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 5
+  lerpSpeedRotation: 0
+  damage: 0

@@ -13,7 +13,7 @@ public class BulletPoolManager : MonoBehaviour
     {
         bulletPool = new BulletPool(bulletPrefab);
         player = FindObjectOfType<CharacterController>().gameObject;
-        InvokeRepeating("FindOutOfBoundsBullets", 1f, 1f);
+        InvokeRepeating("FindOutOfBoundsBullets", 0.1f, 0.1f);
     }
 
     public Bullet GetBullet()
@@ -24,8 +24,9 @@ public class BulletPoolManager : MonoBehaviour
     {
         foreach(Bullet bullet in FindObjectsOfType<Bullet>())
         {
-            Vector2 normalized = bullet.transform.position - player.transform.position;
-            if (normalized.magnitude > 1000)
+            
+            float bulletDistance = Vector2.Distance(bullet.transform.position, player.transform.position);
+            if (bulletDistance > 20)
             {
                 bulletPool.bulletPool.Release(bullet);
             }

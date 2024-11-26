@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 public class Bullet : MonoBehaviour
 {
     [Header("Bullet")]
-    [SerializeField] private float lifeTime = 5f; //Vida bola
+    [SerializeField] private float lifeTime = 15111f; //Vida bola
     private float currentTime;
     public ObjectPool<Bullet> pool;
     //public AudioClip sonido;

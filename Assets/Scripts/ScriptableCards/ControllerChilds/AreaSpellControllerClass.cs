@@ -12,10 +12,11 @@ public class AreaSpellControllerClass : MonoBehaviour
 
     private void Start()
     {
-        Destroy(gameObject, destroyAfterAnimation);
+        Destroy(gameObject, GetAnimationLength());
         damagedEnemies = new List<GameObject>();
 
     }
+
     public int GetSpellDamage()
     {
         return spellDamage = spellData.Damage;

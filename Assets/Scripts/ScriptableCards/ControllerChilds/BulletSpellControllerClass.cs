@@ -19,7 +19,7 @@ public class BulletSpellControllerClass : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Vector3.right * spellSpeed * Time.deltaTime;
+        transform.position += Vector3.right * GetSpellSpeed() * Time.deltaTime;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

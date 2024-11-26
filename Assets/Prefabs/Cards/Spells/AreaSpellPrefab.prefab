@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7227215962430193976}
   - component: {fileID: -365622468691935214}
   - component: {fileID: 4850410411344141769}
+  - component: {fileID: -3236013401112601756}
   m_Layer: 0
   m_Name: AreaSpellPrefab
   m_TagString: Untagged
@@ -72,8 +73,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1504408775
+  m_SortingLayer: -1
   m_SortingOrder: -1
   m_Sprite: {fileID: -1271323449, guid: e0cdea7c711d5594ab07c1b42e02b073, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -120,3 +121,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!111 &-3236013401112601756
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8318017101122333482}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

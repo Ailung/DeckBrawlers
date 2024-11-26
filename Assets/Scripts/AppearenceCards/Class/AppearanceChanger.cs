@@ -24,7 +24,10 @@ public class AppearanceChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        changeAppearance();
+        if (m_CharacterController != null)
+        {
+            changeAppearance();
+        }
     }
 
     public void changeAppearance()
@@ -150,7 +153,7 @@ public class AppearanceChanger : MonoBehaviour
                     if (!m_EnemyController.AppearanceTop.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceTop.appearanceOnSprite;
-                        m_Renderer.color = m_EnemyController.AppearanceTop.appearanceColor;
+                        m_Renderer.color = defaultAppearanceColor;
                     }
                     else
                     {
@@ -163,7 +166,7 @@ public class AppearanceChanger : MonoBehaviour
                     if (!m_EnemyController.AppearanceFace.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceFace.appearanceOnSprite;
-                        m_Renderer.color = m_EnemyController.AppearanceFace.appearanceColor;
+                        m_Renderer.color = defaultAppearanceColor;
                     }
                     else
                     {
@@ -176,12 +179,12 @@ public class AppearanceChanger : MonoBehaviour
                     if (!m_EnemyController.AppearanceHands.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceHands.appearanceOnSprite;
-                        m_Renderer.color = m_EnemyController.AppearanceHands.appearanceColor;
+                        m_Renderer.color = defaultAppearanceColor;
                     }
                     else
                     {
                         m_Renderer.sprite = defaultSprite;
-                        m_Renderer.color = defaultAppearanceColor;
+                        m_Renderer.color =  defaultAppearanceColor;
                     }
                     break;
 
@@ -189,7 +192,7 @@ public class AppearanceChanger : MonoBehaviour
                     if (!m_EnemyController.AppearanceHat.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceHat.appearanceOnSprite;
-                        m_Renderer.color = m_EnemyController.AppearanceHat.appearanceColor;
+                        m_Renderer.color = defaultAppearanceColor;
                     }
                     else
                     {
@@ -202,7 +205,7 @@ public class AppearanceChanger : MonoBehaviour
                     if (!m_EnemyController.AppearanceBottom.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceBottom.appearanceOnSprite;
-                        m_Renderer.color = m_EnemyController.AppearanceBottom.appearanceColor;
+                        m_Renderer.color = defaultAppearanceColor;
                     }
                     else
                     {
@@ -215,7 +218,7 @@ public class AppearanceChanger : MonoBehaviour
                     if (!m_EnemyController.AppearanceSkin.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceSkin.appearanceOnSprite;
-                        m_Renderer.color = m_EnemyController.AppearanceSkin.appearanceColor;
+                        m_Renderer.color = defaultAppearanceColor;
                     }
                     else
                     {
@@ -228,7 +231,7 @@ public class AppearanceChanger : MonoBehaviour
                     if (!m_EnemyController.AppearanceShape.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceShape.appearanceOnSprite;
-                        m_Renderer.color = m_EnemyController.AppearanceShape.appearanceColor;
+                        m_Renderer.color = defaultAppearanceColor;
                     }
                     else
                     {
@@ -241,7 +244,7 @@ public class AppearanceChanger : MonoBehaviour
                     if (!m_EnemyController.AppearanceShoes.appearanceOnSprite.IsUnityNull())
                     {
                         m_Renderer.sprite = m_EnemyController.AppearanceShoes.appearanceOnSprite;
-                        m_Renderer.color = m_EnemyController.AppearanceShoes.appearanceColor;
+                        m_Renderer.color = defaultAppearanceColor;
                     }
                     else
                     {

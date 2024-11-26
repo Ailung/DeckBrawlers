@@ -1502,6 +1502,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7117691266826632235, guid: 0023f9b42e5de0c4092dfe8d8ff52e7f, type: 3}
+      propertyPath: Datas.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7117691266826632235, guid: 0023f9b42e5de0c4092dfe8d8ff52e7f, type: 3}
+      propertyPath: Datas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: bfe5ce081dc3d0f4696eee2f4b0cea27, type: 2}
     - target: {fileID: 8226141355453294131, guid: 0023f9b42e5de0c4092dfe8d8ff52e7f, type: 3}
       propertyPath: m_Name
       value: EnemyFactory
@@ -1564,8 +1572,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1498010902}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyData.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyData.Array.data[0]
+      value: lista1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: enemySriptableClasses.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyScriptableClasses.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyScriptableClasses.Array.data[0]
+      value: Normal
       objectReference: {fileID: 0}
     - target: {fileID: 4037008688448756331, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: m_Name

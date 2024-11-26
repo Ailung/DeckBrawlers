@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class EnemyTrigger : MonoBehaviour
 {
-    [SerializeField] string[] enemySriptableClasses;
+    [SerializeField] string[] enemyScriptableClasses;
+    [SerializeField] string[] enemyData;
     [SerializeField] EnemyFactory enemyFactory;
     [SerializeField] GameObject spawnPoint;
     private System.Random rnd = new System.Random();
@@ -12,12 +13,16 @@ public class EnemyTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            foreach (string enemyId in enemySriptableClasses)
+            if (enemyData.Length == enemyScriptableClasses.Length) 
             {
-                enemyFactory.Create(enemyId, spawnPoint.transform.position + new Vector3(0,rnd.Next(-1 , 1),0));
-            }
+                
+                for (int i = 0; i < enemyScriptableClasses.Length; i++)
+                {
+                    enemyFactory.Create(enemyScriptableClasses.GetValue(i).ToString(), spawnPoint.transform.position + new Vector3(0, rnd.Next(-1, 1), 0), enemyData.GetValue(i).ToString());
+                }
 
-            this.gameObject.SetActive(false);
+                this.gameObject.SetActive(false);
+            }
         }
     }
 }

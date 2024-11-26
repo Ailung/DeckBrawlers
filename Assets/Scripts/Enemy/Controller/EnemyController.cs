@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     private bool isFacingRight = false;
     private StateMachine enemyStateMachine;
     private DropsFactory dropsFactory;
+
     private AppearanceCardScriptableClass appearanceHat = null;
     private AppearanceCardScriptableClass appearanceSkin = null;
     private AppearanceCardScriptableClass appearanceFace = null;
@@ -56,7 +57,7 @@ public class EnemyController : MonoBehaviour
 
     private MeshRenderer mr;
 
-    private void Awake()
+    private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         mr = GetComponent<MeshRenderer>();
@@ -71,7 +72,59 @@ public class EnemyController : MonoBehaviour
         {
             enemyStateMachine.Initialize(enemyStateMachine.waitingState);
         }
-        
+
+        foreach (AppearanceCardScriptableClass card in appearanceCards)
+        {
+            switch (card.appearanceType)
+            {
+                case AppearanceEnum.top:
+                    appearanceTop = card;
+                    break;
+
+                case AppearanceEnum.face:
+                    appearanceFace = card;
+                    break;
+
+                case AppearanceEnum.hands:
+                    appearanceHands = card;
+                    break;
+
+                case AppearanceEnum.hat:
+                    appearanceHat = card;
+                    break;
+
+                case AppearanceEnum.bottom:
+                    appearanceBottom = card;
+                    break;
+
+                case AppearanceEnum.skin:
+                    appearanceSkin = card;
+                    break;
+
+                case AppearanceEnum.shape:
+                    appearanceShape = card;
+                    break;
+
+                case AppearanceEnum.shoes:
+                    appearanceShoes = card;
+                    break;
+
+                default: break;
+
+            }
+
+        }
+
+        AppearanceChanger[] appearanceChangers = GetComponentsInChildren<AppearanceChanger>();
+
+        Debug.Log(appearanceChangers.Length);
+
+
+        foreach (AppearanceChanger appearanceChanger in appearanceChangers)
+        {
+            appearanceChanger.changeAppearance();
+        }
+
 
     }
     
@@ -115,4 +168,14 @@ public class EnemyController : MonoBehaviour
     {
         enemyData = data;
     }
+
+    public void setAppearanceList(AppearanceListForEnemiesClass data)
+    {
+        appearanceCards = data.appearanceCards;
+        
+
+        
+    }
+
+
 }

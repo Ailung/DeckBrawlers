@@ -23,11 +23,16 @@ public class BulletSpellControllerClass : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy") && spellData.Tag == "Player")
         {
             collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
             this.gameObject.GetComponent<Bullet>().Deactivate();
 
+        }
+        if (collision.CompareTag("player") && spellData.Tag == "Enemy")
+        {
+            collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
+            this.gameObject.GetComponent<Bullet>().Deactivate();
         }
     }
 }

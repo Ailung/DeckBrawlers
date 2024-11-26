@@ -9,8 +9,10 @@ public class ConeSpellScriptableClass : SpellScriptableBehaviourClass
     [SerializeField] GameObject prefab;
     [SerializeField] Color color;
     [SerializeField] int damage;
+    [SerializeField] int ConeAnimation;
     [SerializeField] float speed;
     [SerializeField] float size;
+    [SerializeField] string tag;
     [SerializeField] public AnimationClip animationClip;
 
     public GameObject Prefab { get { return prefab; } }
@@ -18,6 +20,7 @@ public class ConeSpellScriptableClass : SpellScriptableBehaviourClass
     public int Damage { get { return damage; } }
     public float Speed { get { return speed; } }
     public float Size { get { return size; } }
+    public string Tag { get { return tag; } }
     public AnimationClip AnimationClip { get { return animationClip; } }
 
 
@@ -25,12 +28,13 @@ public class ConeSpellScriptableClass : SpellScriptableBehaviourClass
 
     public override void Behaviour(GameObject caster)
     {
+        prefab.GetComponent<ConeSpellControllerClass>().spellData = this;
         GameObject spawnedConeSpell = Instantiate(prefab);
 
         spawnedConeSpell.transform.position = caster.transform.position + new Vector3(3,0,0);
         spawnedConeSpell.transform.parent = caster.transform;
 
-        spawnedConeSpell.GetComponent<Animation>().clip = animationClip;
-        spawnedConeSpell.GetComponent<ConeSpellControllerClass>().spellData = this;
+        spawnedConeSpell.GetComponent<Animator>().SetInteger("ConeAnimation", ConeAnimation);
+        
     }
 }

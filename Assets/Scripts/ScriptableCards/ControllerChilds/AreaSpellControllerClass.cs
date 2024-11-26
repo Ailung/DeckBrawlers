@@ -13,11 +13,8 @@ public class AreaSpellControllerClass : MonoBehaviour
     private void Start()
     {
         damagedEnemies = new List<GameObject>();
-
-    }
-    private void Awake()
-    {
         Destroy(gameObject, GetAnimationLength());
+
     }
 
     public int GetSpellDamage()
@@ -30,9 +27,14 @@ public class AreaSpellControllerClass : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy") && !damagedEnemies.Contains(collision.gameObject))
+        if (collision.CompareTag("Enemy") && !damagedEnemies.Contains(collision.gameObject) && spellData.Tag == "Player")
         {
 
+            collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
+            damagedEnemies.Add(gameObject);
+        }
+        if (collision.CompareTag("Player") && !damagedEnemies.Contains(collision.gameObject) && spellData.Tag == "Enemy")
+        {
             collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
             damagedEnemies.Add(gameObject);
         }

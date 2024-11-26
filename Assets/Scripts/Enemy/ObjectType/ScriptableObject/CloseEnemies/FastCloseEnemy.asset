@@ -18,4 +18,5 @@ MonoBehaviour:
   stopDistance: 5
   chasingDistance: 0.5
   dropId: Coin
-  startChasing: 0
+  enemyStateEnum: 1
+  selectedCard: {fileID: 0}

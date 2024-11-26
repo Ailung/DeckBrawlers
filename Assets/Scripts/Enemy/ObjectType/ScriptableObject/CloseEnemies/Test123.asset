@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91e6af45f35cd8b438aa8ab0725efaba, type: 3}
   m_Name: Test123
   m_EditorClassIdentifier: 
-  id: id
-  speed: 3
-  chaseDistance: 0
-  stopDistance: 0
+  id: Casting
+  speed: 5
+  chaseDistance: 3
+  stopDistance: 5
   chasingDistance: 0.5
-  dropId: 
-  enemyStateEnum: 0
+  dropId: Food
+  enemyStateEnum: 2
+  selectedCard: {fileID: 0}

@@ -9,8 +9,10 @@ public class BulletSpellScriptableClass : SpellScriptableBehaviourClass
     [SerializeField] GameObject prefab;
     [SerializeField] Color color;
     [SerializeField] int damage;
+    [SerializeField] int bulletAnimation;
     [SerializeField] float speed;
     [SerializeField] float size;
+    [SerializeField] string tag;
     [SerializeField] AnimationClip animationClip;
     private BulletPoolManager bulletPool;
 
@@ -21,6 +23,7 @@ public class BulletSpellScriptableClass : SpellScriptableBehaviourClass
     public int Damage { get { return damage; } }
     public float Speed { get { return speed; } }
     public float Size { get { return size; } }
+    public string Tag { get { return tag; } }
     public AnimationClip AnimationClip { get { return animationClip; } }
 
 
@@ -30,7 +33,7 @@ public class BulletSpellScriptableClass : SpellScriptableBehaviourClass
 
         Bullet spawnedSpellBullet = bulletPool.GetBullet();
         spawnedSpellBullet.transform.position = caster.transform.position;
-        spawnedSpellBullet.GetComponent<Animation>().clip = animationClip;
+        spawnedSpellBullet.GetComponent<Animator>().SetInteger("BulletAnimation",bulletAnimation);
         spawnedSpellBullet.GetComponent<BulletSpellControllerClass>().spellData = this;
         
 

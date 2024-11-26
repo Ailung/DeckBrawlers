@@ -18,4 +18,5 @@ MonoBehaviour:
   stopDistance: 5
   chasingDistance: 0.5
   dropId: Food
-  startChasing: 1
+  enemyStateEnum: 0
+  selectedCard: {fileID: 0}

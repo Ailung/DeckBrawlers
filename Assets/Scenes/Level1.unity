@@ -1389,6 +1389,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 547392736611165410, guid: aa1f46a714a1fbc419299f8d900a3b3e, type: 3}
+      propertyPath: m_DeadZoneWidth
+      value: 0.147
+      objectReference: {fileID: 0}
     - target: {fileID: 5799411449785843801, guid: aa1f46a714a1fbc419299f8d900a3b3e, type: 3}
       propertyPath: m_Follow
       value: 

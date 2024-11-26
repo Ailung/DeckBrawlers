@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d263796faaa0445b5953256cec2248, type: 3}
   m_Name: CardBoss1
   m_EditorClassIdentifier: 
-  orangeSpell: {fileID: 11400000, guid: 373e146bef160a24cbf52a46beba03a0, type: 2}
-  blueSpell: {fileID: 11400000, guid: 3c05d99e1f86eeb4d877dd058f06b378, type: 2}
-  greenSpell: {fileID: 11400000, guid: e7b6a43ee6a3cc942b9a206d2d110dd9, type: 2}
+  orangeSpell: {fileID: 11400000, guid: d14a2e9e1c08ede418a2d12adc5dd81e, type: 2}
+  blueSpell: {fileID: 11400000, guid: c4735db168b23924a8b5c350ba1378d1, type: 2}
+  greenSpell: {fileID: 11400000, guid: 25b15ced3da8db8489aaa19c5adf4715, type: 2}
   cardAppearance: {fileID: 0}

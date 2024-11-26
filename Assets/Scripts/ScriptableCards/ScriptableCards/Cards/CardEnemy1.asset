@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81d263796faaa0445b5953256cec2248, type: 3}
   m_Name: CardEnemy1
   m_EditorClassIdentifier: 
-  orangeSpell: {fileID: 11400000, guid: 373e146bef160a24cbf52a46beba03a0, type: 2}
+  orangeSpell: {fileID: 11400000, guid: d14a2e9e1c08ede418a2d12adc5dd81e, type: 2}
   blueSpell: {fileID: 0}
   greenSpell: {fileID: 0}
   cardAppearance: {fileID: 0}

@@ -36,8 +36,7 @@ public class AreaSpellControllerClass : MonoBehaviour
         }
         if (collision.CompareTag("Player") && !damagedEnemies.Contains(collision.gameObject) && spellData.Tag == "Enemy")
         {
-            collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
-            collision.GetComponent<CharacterController>().DamageStun();
+            collision.GetComponent<CharacterController>().DamageStun(GetSpellDamage());
             damagedEnemies.Add(gameObject);
         }
     }

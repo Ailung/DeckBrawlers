@@ -31,15 +31,13 @@ public class ConeSpellControllerClass : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") && !damagedEnemies.Contains(collision.gameObject) && spellData.Tag == "Player")
         {
-
             collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
             collision.GetComponent<EnemyController>().DamageStun();
             damagedEnemies.Add(gameObject);
         }
         if (collision.CompareTag("Player") && !damagedEnemies.Contains(collision.gameObject) && spellData.Tag == "Enemy")
         {
-            collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
-            collision.GetComponent<CharacterController>().DamageStun();
+            collision.GetComponent<CharacterController>().DamageStun(GetSpellDamage());
             damagedEnemies.Add(gameObject);
         }
     }

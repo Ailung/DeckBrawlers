@@ -19,7 +19,13 @@ public class BulletSpellControllerClass : MonoBehaviour
 
     private void Update()
     {
-        transform.position += Vector3.right * GetSpellSpeed() * Time.deltaTime;
+        if (spellData.Tag == "Player") {
+            transform.position += Vector3.right * GetSpellSpeed() * Time.deltaTime;
+        }
+
+        if (spellData.Tag == "Enemy") {
+            transform.position += Vector3.left * GetSpellSpeed() * Time.deltaTime;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,8 +38,7 @@ public class BulletSpellControllerClass : MonoBehaviour
         }
         if (collision.CompareTag("Player") && spellData.Tag == "Enemy")
         {
-            collision.GetComponent<HealthManager>().getDamage(GetSpellDamage());
-            collision.GetComponent<CharacterController>().DamageStun();
+            collision.GetComponent<CharacterController>().DamageStun(GetSpellDamage());
             this.gameObject.GetComponent<Bullet>().Deactivate();
         }
     }

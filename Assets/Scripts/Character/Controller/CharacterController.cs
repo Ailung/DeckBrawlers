@@ -179,8 +179,7 @@ public class CharacterController : MonoBehaviour
             {
                 if (collision.TryGetComponent<Weapon>(out Weapon weapon))
                 {
-                    healthManager.getDamage(weapon.AttackDamage - weapon.AttackDamage * (statDefense / 10));
-                    DamageStun();
+                    DamageStun(weapon.AttackDamage);
                     weapon.gameObject.GetComponent<BoxCollider2D>().enabled = false;
                 }
             } else
@@ -255,10 +254,15 @@ public class CharacterController : MonoBehaviour
         shield.gameObject.SetActive(state);
     }
 
-    public void DamageStun()
+    public void DamageStun(int spellDamage)
     {
-        isStunned = true;
-        rb.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
-        StartCoroutine(stunned());
+        if (playerStateMachine.CurrentState is not Block)
+        {
+            healthManager.getDamage(spellDamage - spellDamage * (statDefense / 10));
+            isStunned = true;
+            rb.AddForce(Vector2.left * 10, ForceMode2D.Impulse);
+            StartCoroutine(stunned());
+        }
+        
     }
 }

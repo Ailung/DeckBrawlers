@@ -18,5 +18,5 @@ MonoBehaviour:
   bulletAnimation: 4
   speed: 8
   size: 2
-  tag: 
+  tag: Player
   animationClip: {fileID: 7400000, guid: 600ed3ff732258f4ea8b8da13d556eff, type: 2}

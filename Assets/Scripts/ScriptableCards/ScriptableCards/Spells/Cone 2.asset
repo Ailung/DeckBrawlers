@@ -18,5 +18,5 @@ MonoBehaviour:
   ConeAnimation: 2
   speed: 1
   size: 1
-  tag: 
+  tag: Player
   animationClip: {fileID: 7400000, guid: dadf5f9bdf0851e409d761fdbcc316cc, type: 2}

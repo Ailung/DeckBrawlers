@@ -205,25 +205,44 @@ public class EnemyController : MonoBehaviour
         int spell = random.Next(1, 3);
         if (enemyStateMachine.CurrentState is Casting)
         {
-            if (enemyData.selectedCard != null && enemyData.selectedCard.OrangeSpell != null && spell <= 1)
+            if (enemyData.selectedCard != null && enemyData.selectedCard.OrangeSpell != null)
             {
-                Debug.Log("combo 1 lanzado");
-                enemyData.selectedCard.OrangeSpell.Behaviour(this.gameObject);
+                if (enemyData.selectedCard != null && enemyData.selectedCard.GreenSpell != null)
+                {
+                    if (enemyData.selectedCard != null && enemyData.selectedCard.BlueSpell != null)
+                    {
+                        if (spell <= 1)
+                        {
+                            Debug.Log("combo 1 lanzado");
+                            enemyData.selectedCard.OrangeSpell.Behaviour(this.gameObject);
+                        }
+                        else if (spell > 1 && spell <= 2)
+                        {
+                            Debug.Log("combo 2 lanzado");
+                            enemyData.selectedCard.GreenSpell.Behaviour(this.gameObject);
+                        }
+                        else if (spell > 2 && spell <= 3)
+                        {
+                            Debug.Log("combo 3 lanzado");
+                            enemyData.selectedCard.BlueSpell.Behaviour(this.gameObject);
+                        }
+                        else
+                        {
+                            Debug.Log("ningun lanzado");
+                        }
+                    }
+                }
+
+                if (enemyData.selectedCard != null && enemyData.selectedCard.GreenSpell == null)
+                {
+                    if (enemyData.selectedCard != null && enemyData.selectedCard.BlueSpell == null)
+                    {
+                        Debug.Log("combo 1 lanzado");
+                        enemyData.selectedCard.OrangeSpell.Behaviour(this.gameObject);
+                    }
+                }
             }
-            else if (enemyData.selectedCard != null && enemyData.selectedCard.GreenSpell != null && spell > 1 && spell <= 2)
-            {
-                Debug.Log("combo 2 lanzado");
-                enemyData.selectedCard.GreenSpell.Behaviour(this.gameObject);
-            }
-            else if (enemyData.selectedCard != null && enemyData.selectedCard.BlueSpell != null && spell > 2 && spell <= 3)
-            {
-                Debug.Log("combo 3 lanzado");
-                enemyData.selectedCard.BlueSpell.Behaviour(this.gameObject);
-            }
-            else
-            {
-                Debug.Log("ningun lanzado");
-            }
+            
         }
     }
 

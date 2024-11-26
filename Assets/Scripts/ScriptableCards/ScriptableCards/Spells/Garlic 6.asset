@@ -18,5 +18,5 @@ MonoBehaviour:
   AreaAnimation: 6
   speed: 10
   size: 3
-  tag: 
+  tag: Player
   animationClip: {fileID: 7400000, guid: c3030f667ab0c6d428e6ac36bf4d009d, type: 2}

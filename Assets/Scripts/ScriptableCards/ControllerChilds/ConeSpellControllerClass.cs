@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AreaSpellControllerClass : MonoBehaviour
+public class ConeSpellControllerClass : MonoBehaviour
 {
-    public AreaSpellScriptableClass spellData;
+    public ConeSpellScriptableClass spellData;
     private float destroyAfterAnimation;
     private int spellDamage;
     List<GameObject> damagedEnemies;
@@ -12,12 +12,10 @@ public class AreaSpellControllerClass : MonoBehaviour
 
     private void Start()
     {
-        damagedEnemies = new List<GameObject>();
-
-    }
-    private void Awake()
-    {
         Destroy(gameObject, GetAnimationLength());
+        damagedEnemies = new List<GameObject>();
+        this.gameObject.GetComponent<Animation>().clip = spellData.animationClip;
+
     }
 
     public int GetSpellDamage()
@@ -26,6 +24,7 @@ public class AreaSpellControllerClass : MonoBehaviour
     }
     public float GetAnimationLength()
     {
+        Debug.Log(spellData.AnimationClip.length);
         return destroyAfterAnimation = spellData.AnimationClip.length;
     }
     private void OnTriggerEnter2D(Collider2D collision)

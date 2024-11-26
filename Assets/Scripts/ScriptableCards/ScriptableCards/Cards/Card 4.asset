@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   orangeSpell: {fileID: 11400000, guid: 38fb6c32ec3537f408e73fe2220f64a4, type: 2}
   blueSpell: {fileID: 11400000, guid: 9df07ecdf217ee34fae3ba68f3f4e7a9, type: 2}
-  greenSpell: {fileID: 11400000, guid: f480e921c6c89604c83a4b606edede9e, type: 2}
-  cardAppearance: {fileID: 1688492604, guid: 3b09fe3c720e86d44865829a0d293aa3, type: 3}
+  greenSpell: {fileID: 11400000, guid: 04c790a652765a74faeda5fd6c3f9d92, type: 2}
+  cardAppearance: {fileID: 1715646855, guid: 3b09fe3c720e86d44865829a0d293aa3, type: 3}

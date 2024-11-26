@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7762482068142763088}
   - component: {fileID: 2989054772990504200}
-  - component: {fileID: 1357590033173250391}
   - component: {fileID: 5648893820884317033}
   - component: {fileID: 1463120973781162657}
   - component: {fileID: 8652509389697706274}
+  - component: {fileID: -4934208073718722159}
   m_Layer: 0
   m_Name: ConeSpellPrefab
   m_TagString: Untagged
@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 0}
-  m_LocalScale: {x: 19.01, y: 13.239999, z: 13.239999}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 19, y: 13, z: 13}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -88,19 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1357590033173250391
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4452446470935070040}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42edd1fe7be73e44089083ad4f91caff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellData: {fileID: 0}
 --- !u!95 &5648893820884317033
 Animator:
   serializedVersion: 5
@@ -132,7 +119,11 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 0}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: 08365a427b4098647a7b40e962571b29, type: 2}
+  - {fileID: 7400000, guid: dadf5f9bdf0851e409d761fdbcc316cc, type: 2}
+  - {fileID: 7400000, guid: f2a2a19bbf7fdc448a895648a885a30e, type: 2}
+  - {fileID: 7400000, guid: 7bfdf9e29e126834693b83750a83cf99, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -182,3 +173,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.17}
   m_EdgeRadius: 0
+--- !u!114 &-4934208073718722159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452446470935070040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2266de372ecb5e44aa807c7ec0c7820, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellData: {fileID: 0}

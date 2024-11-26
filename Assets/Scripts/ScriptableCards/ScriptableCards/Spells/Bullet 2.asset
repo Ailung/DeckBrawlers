@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bullet 2
   m_EditorClassIdentifier: 
   prefab: {fileID: 6791785011473192917, guid: 9a545602f23ec4547b02a1683bd13212, type: 3}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 1}
   damage: 11
   speed: 5
   size: 2

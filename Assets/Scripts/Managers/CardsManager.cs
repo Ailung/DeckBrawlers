@@ -40,8 +40,8 @@ public class CardsManager : MonoBehaviour
     public void UseCard(string spellColor, GameObject caster)
     {
         if(spellColor == "orange") selectedCard.OrangeSpell.Behaviour(caster);
-        else if (spellColor == "blue") selectedCard.BlueSpell.Behaviour(caster);
-        else if (spellColor == "green") selectedCard.GreenSpell.Behaviour(caster);
+        if(spellColor == "blue") selectedCard.BlueSpell.Behaviour(caster);
+        if(spellColor == "green") selectedCard.GreenSpell.Behaviour(caster);
 
         discardPile.Add(selectedCard);
         DrawCard();

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Garlic 5
   m_EditorClassIdentifier: 
   prefab: {fileID: 8318017101122333482, guid: b4c65d84e50079b449934f3e38d30a06, type: 3}
-  color: {r: 1, g: 0.2971698, b: 0.2971698, a: 1}
+  color: {r: 1, g: 1, b: 1, a: 1}
   damage: 4
   speed: 10
   size: 3

@@ -43,6 +43,7 @@ public class CharacterController : MonoBehaviour
 
     private bool isFacingRight = true;
     private bool animationShield = false;
+    private bool isStunned = false;
 
     public bool GetIsFacingRight() { return isFacingRight; }
 
@@ -210,6 +211,15 @@ public class CharacterController : MonoBehaviour
         shield.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 0.25f);
         yield return new WaitForSeconds(1f);
         shield.GetComponent<SpriteRenderer>().color = new Color(0,1,1,0.25f);
+        yield return new WaitForSeconds(1f);
+    }
+
+    private IEnumerator stunned()
+    {
+        yield return new WaitForSeconds(1f);
+        isStunned = true;
+        yield return new WaitForSeconds(1f);
+        isStunned = false;
         yield return new WaitForSeconds(1f);
     }
 

@@ -22,6 +22,7 @@ public class EnemyController : MonoBehaviour
     private GameObject hand;
     private GameObject foot;
     private bool isFacingRight = false;
+    private bool isStunned = false;
     private StateMachine enemyStateMachine;
     private DropsFactory dropsFactory;
 
@@ -153,6 +154,7 @@ public class EnemyController : MonoBehaviour
                 this.GetComponent<HealthManager>().getDamage(weapon.AttackDamage);
                 rb.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
                 weapon.gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                StartCoroutine(stunned());
             }
 
         }
@@ -161,7 +163,10 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         playerDistance = Vector2.Distance(transform.position, player.transform.position);
-        StateMachine.UpdateState();
+        if (!isStunned)
+        {
+            StateMachine.UpdateState();
+        }
 
         
 
@@ -220,5 +225,14 @@ public class EnemyController : MonoBehaviour
                 Debug.Log("ningun lanzado");
             }
         }
+    }
+
+    private IEnumerator stunned()
+    {
+        yield return new WaitForSeconds(1f);
+        isStunned = true;
+        yield return new WaitForSeconds(1f);
+        isStunned = false;
+        yield return new WaitForSeconds(1f);
     }
 }

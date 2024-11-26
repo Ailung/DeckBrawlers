@@ -1190,7 +1190,7 @@ Transform:
   m_GameObject: {fileID: 8290562355641553743}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 31.87519, y: -3.8024392, z: 0}
+  m_LocalPosition: {x: 31.87519, y: -2.6, z: 0}
   m_LocalScale: {x: 0.424, y: 0.424, z: 0.424}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1268,8 +1268,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bef3c8c4eacad4f4e9827710fc5d05b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 0947f1717dc2c714f8896ba0f57c4dc5, type: 2}
-  appearanceCards: []
+  enemyData: {fileID: 11400000, guid: afd9244ec082a37469be3543caddc6d9, type: 2}
+  appearanceCards:
+  - {fileID: 11400000, guid: 65062122fead1314e92405e51850fd86, type: 2}
+  - {fileID: 11400000, guid: 01d59090abacc8f42b35d7690e5f92ff, type: 2}
+  - {fileID: 11400000, guid: d55e9582db1a68744b0af23a2b384535, type: 2}
+  - {fileID: 11400000, guid: f28445d02cf23a04bb8a9b68a5308e3c, type: 2}
+  - {fileID: 11400000, guid: 14d94c7f698633846beb2949a8385069, type: 2}
+  - {fileID: 11400000, guid: 780a6fbfdff7c894b907f136ce37c955, type: 2}
+  - {fileID: 11400000, guid: ed1bf0e0dc5efad429133a451b845e87, type: 2}
 --- !u!50 &2248080261210652170
 Rigidbody2D:
   serializedVersion: 4

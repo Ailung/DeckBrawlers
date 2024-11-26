@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 54596083}
   - component: {fileID: 54596084}
+  - component: {fileID: 54596085}
   m_Layer: 0
   m_Name: BulletPoolManager
   m_TagString: Untagged
@@ -168,6 +169,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 4523604511098479873, guid: 9a545602f23ec4547b02a1683bd13212, type: 3}
+--- !u!95 &54596085
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54596082}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6edb850a07238f943ac8518247d01c90, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &168360540 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9076376810391669836, guid: 0c5d0f287576b0243ad7a3e067ec945b, type: 3}
@@ -827,6 +849,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 25275b6026540ab4d9ec9dce948a2f90, type: 2}
   - {fileID: 11400000, guid: 2b83bb0acfb9fac48bf331129da01a3d, type: 2}
   - {fileID: 11400000, guid: f9db0e5747b53ba4794d0857b8495e56, type: 2}
+  - {fileID: 11400000, guid: 6e32429a4b956504b83c3961a56cd996, type: 2}
+  - {fileID: 11400000, guid: bd0ac232a58ef7f4b809fcebb1faab6f, type: 2}
+  - {fileID: 11400000, guid: 0b7e0a132bad84d4b8ea12e0e58bd2c9, type: 2}
+  - {fileID: 11400000, guid: 050f69fdf927748488206397f9570bfe, type: 2}
+  - {fileID: 11400000, guid: 4faced0155bc55842a8e15850fa6eb3d, type: 2}
+  - {fileID: 11400000, guid: 10219b6687050314ea7a22e01bf0ca63, type: 2}
   discardPile: []
   cardSlot: {fileID: 1392723963}
 --- !u!1 &832844151

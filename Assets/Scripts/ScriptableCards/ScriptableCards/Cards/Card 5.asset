@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d263796faaa0445b5953256cec2248, type: 3}
+  m_Name: Card 5
+  m_EditorClassIdentifier: 
+  orangeSpell: {fileID: 11400000, guid: fc0d16dd6efd2db448626389363ef4b4, type: 2}
+  blueSpell: {fileID: 11400000, guid: 6d31fbada8fb8e348ad422ca0ddd59d4, type: 2}
+  greenSpell: {fileID: 11400000, guid: f480e921c6c89604c83a4b606edede9e, type: 2}
+  cardAppearance: {fileID: 1688492604, guid: 3b09fe3c720e86d44865829a0d293aa3, type: 3}

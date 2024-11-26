@@ -9,14 +9,14 @@ public class CardsManager : MonoBehaviour
     public List<SpellScriptableCardClass> discardPile = new List<SpellScriptableCardClass>();
 
     [SerializeField] private GameObject cardSlot;
-    private SpriteRenderer cardSlotSprite;
+    private Image cardSlotSprite;
 
     private SpellScriptableCardClass selectedCard;
     public SpellScriptableCardClass SelectedCard { get { return selectedCard; } }
 
     private void Awake()
     {
-        cardSlotSprite = cardSlot.GetComponent<SpriteRenderer>();
+        cardSlotSprite = cardSlot.GetComponent<Image>();
         DrawCard();
     }
 

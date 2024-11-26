@@ -15,6 +15,6 @@ MonoBehaviour:
   prefab: {fileID: 0}
   color: {r: 0, g: 0, b: 0, a: 0}
   damage: 5
-  speed: 5
+  speed: 7
   size: 2
   animationClip: {fileID: 7400000, guid: f70f310ff10422a47ba99365e51dfcb4, type: 2}

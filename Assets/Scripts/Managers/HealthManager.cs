@@ -24,6 +24,7 @@ public class HealthManager : MonoBehaviour
     public void getDamage(int damage)
     {
         health -= damage;
+        AudioManager.Instance.PlaySFX("Hit");
 
         if (TryGetComponent<CharacterController>(out CharacterController characterController))
         {

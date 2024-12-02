@@ -29,7 +29,9 @@ public class Leg : Weapon
         isAttacking = true;
         gameObject.SetActive(true);
         gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        AudioManager.Instance.PlaySFX("Golpe");
         StartCoroutine(waitToEnd(agilityStat));
+
     }
 
     IEnumerator waitToEnd(float agilityStat)

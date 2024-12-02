@@ -26,6 +26,17 @@ public class GameManager : MonoBehaviour
         sceneLoadManager = new SceneLoadManager();
     }
 
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().buildIndex == 0) 
+        {
+            if (Input.GetKeyDown(KeyCode.Mouse0))
+            {
+                AudioManager.Instance.PlaySFX("Click");
+            }
+        }
+    }
+
     public void ChangeScene(string id)
     {
         sceneLoadManager.ChangeScene(id);

@@ -155,8 +155,7 @@ public class CharacterController : MonoBehaviour
             else
             {
                 Debug.Log("ningun lanzado");
-                comboList.Clear();
-                comboTimer = 0;
+                
             }
         }
 
@@ -217,6 +216,13 @@ public class CharacterController : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         isStunned = false;
+    }
+
+    private IEnumerator comboReset()
+    {
+        yield return new WaitForSeconds(1f);
+        comboList.Clear();
+        comboTimer = 0;
     }
 
     private void FixedUpdate()

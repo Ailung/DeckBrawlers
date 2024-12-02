@@ -4077,7 +4077,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 209698736}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1872203493}
+        m_TargetAssemblyTypeName: CardsKeeper, Assembly-CSharp
+        m_MethodName: UpdateDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 788948002}
+        m_TargetAssemblyTypeName: SceneLoadManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level1
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &209698736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5286,7 +5310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bb25b2138e3a044899ccc28a33dc2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  holdingItem: {fileID: 11400000, guid: 464aba96ea606444dbcb3ea9a47bc9b7, type: 2}
+  holdingItem: {fileID: 11400000, guid: 3c060315699efa34f9847bb01e6f0bcf, type: 2}
   cardToChange: {fileID: 1036776506}
 --- !u!114 &258742110
 MonoBehaviour:
@@ -7464,7 +7488,43 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 379183629}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 261964832}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 62515502}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1872203493}
+        m_TargetAssemblyTypeName: CardsKeeper, Assembly-CSharp
+        m_MethodName: UpdateDeck
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &379183629
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12443,6 +12503,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778975289}
   m_CullTransparentMesh: 1
+--- !u!114 &788948002 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5518478284378253522, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+  m_PrefabInstance: {fileID: 1678928646}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1504951890771ac47a454ca1149e789b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &793512502
 GameObject:
   m_ObjectHideFlags: 0
@@ -15734,6 +15805,18 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 788948002}
+        m_TargetAssemblyTypeName: SceneLoadManager, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Level1
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &997998510
@@ -25950,6 +26033,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1675451423}
   m_CullTransparentMesh: 1
+--- !u!1001 &1678928646
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 507.26614
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 276.7931
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.5521855
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3091283708791269168, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3745797049626808715, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
+      propertyPath: m_Name
+      value: SceneManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9eaee91dcd66af0408aa7c3a7a99b681, type: 3}
 --- !u!1 &1688181793
 GameObject:
   m_ObjectHideFlags: 0
@@ -29569,6 +29709,11 @@ MonoBehaviour:
   handsObject: {fileID: 1232216988}
   bottomObject: {fileID: 1036776506}
   shoesObject: {fileID: 1926149364}
+  cardObject1: {fileID: 1925490717}
+  cardObject2: {fileID: 2120649253}
+  cardObject3: {fileID: 813788291}
+  cardObject4: {fileID: 991227686}
+  cardObject5: {fileID: 1921231360}
   selectedSpellCard: {fileID: 0}
 --- !u!4 &1872203494
 Transform:
@@ -33981,3 +34126,4 @@ SceneRoots:
   - {fileID: 849418903}
   - {fileID: 560503035}
   - {fileID: 1872203494}
+  - {fileID: 1678928646}

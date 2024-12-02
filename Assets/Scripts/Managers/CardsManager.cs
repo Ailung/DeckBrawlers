@@ -17,6 +17,7 @@ public class CardsManager : MonoBehaviour
     private void Awake()
     {
         cardSlotSprite = cardSlot.GetComponent<Image>();
+        //deck = CardsKeeper.Instance
         DrawCard();
     }
 

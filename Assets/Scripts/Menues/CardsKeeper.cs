@@ -27,7 +27,15 @@ public class CardsKeeper : MonoBehaviour
     [SerializeField] public GameObject handsObject;
     [SerializeField] public GameObject bottomObject;
     [SerializeField] public GameObject shoesObject;
+    
+    [SerializeField] public GameObject cardObject1;
+    [SerializeField] public GameObject cardObject2;
+    [SerializeField] public GameObject cardObject3;
+    [SerializeField] public GameObject cardObject4;
+    [SerializeField] public GameObject cardObject5;
 
+    private List<AppearanceCardScriptableClass> appearanceCards;
+    private List<SpellScriptableCardClass> spellCards;
 
     public GameObject selectedSpellCard;
 
@@ -64,6 +72,21 @@ public class CardsKeeper : MonoBehaviour
 
         shoesObject.GetComponent<SelectedAppearance>().card = shoes;
         shoesObject.GetComponent<Image>().sprite = shoes.appearanceOnSprite;
+
+        cardObject1.GetComponent<SelectedSpell>().card = card1;
+        cardObject1.GetComponent <Image>().sprite = card1.CardAppearance;
+
+        cardObject2.GetComponent<SelectedSpell>().card = card2;
+        cardObject2.GetComponent<Image>().sprite = card2.CardAppearance;
+
+        cardObject3.GetComponent<SelectedSpell>().card = card3;
+        cardObject3.GetComponent<Image>().sprite = card3.CardAppearance;
+
+        cardObject4.GetComponent<SelectedSpell>().card = card4;
+        cardObject4.GetComponent<Image>().sprite = card4.CardAppearance;
+
+        cardObject5.GetComponent<SelectedSpell>().card = card5;
+        cardObject5.GetComponent<Image>().sprite = card5.CardAppearance;
     }
 
     public void UpdateAppearance()
@@ -74,11 +97,19 @@ public class CardsKeeper : MonoBehaviour
         hands = handsObject.GetComponent<SelectedAppearance>().card;
         bottom = bottomObject.GetComponent<SelectedAppearance>().card;
         shoes = shoesObject.GetComponent<SelectedAppearance>().card;
+
+        appearanceCards = new List<AppearanceCardScriptableClass> { hat, face, top, hands , bottom, shoes};
     }
 
     public void UpdateDeck()
     {
-        return;
+        card1 = cardObject1.GetComponent<SelectedSpell>().card;
+        card2 = cardObject2.GetComponent<SelectedSpell>().card;
+        card3 = cardObject3.GetComponent<SelectedSpell>().card;
+        card4 = cardObject4.GetComponent<SelectedSpell>().card;
+        card5 = cardObject5.GetComponent<SelectedSpell>().card;
+
+        spellCards = new List<SpellScriptableCardClass> { card1, card2, card3, card4, card5 };
     }
 
     public void NewSelectedSpellCard(GameObject spellBeingChanged)

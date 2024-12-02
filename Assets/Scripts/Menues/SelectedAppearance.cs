@@ -7,9 +7,9 @@ public class SelectedAppearance : MonoBehaviour
 {
     [SerializeField] public AppearanceCardScriptableClass card;
 
-    private void Awake()
-    {
-        this.gameObject.GetComponent<Image>().sprite = card.appearanceOnSprite;
-    }
+    //private void Awake()
+    //{
+    //    this.gameObject.GetComponent<Image>().sprite = card.appearanceOnSprite;
+    //}
 
 }

@@ -34,8 +34,8 @@ public class CardsKeeper : MonoBehaviour
     [SerializeField] public GameObject cardObject4;
     [SerializeField] public GameObject cardObject5;
 
-    private List<AppearanceCardScriptableClass> appearanceCards;
-    private List<SpellScriptableCardClass> spellCards;
+    public List<AppearanceCardScriptableClass> appearanceCards;
+    public List<SpellScriptableCardClass> spellCards;
 
     public GameObject selectedSpellCard;
 

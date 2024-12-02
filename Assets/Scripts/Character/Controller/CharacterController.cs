@@ -69,6 +69,7 @@ public class CharacterController : MonoBehaviour
         healthManager = this.GetComponent<HealthManager>();
         playerStateMachine.Initialize(playerStateMachine.idleState);
         appearanceCards = AppearanceCardManager.Instance.GetAppearanceCards();
+        appearanceCards = CardsKeeper.Instance.appearanceCards.ToArray();
         GameManager.Instance.SetCharacter(this);
         shield.GetComponent<SpriteRenderer>().color = new Color(0, 1, 1, 0.25f);
         cardsManager = FindObjectOfType<CardsManager>();

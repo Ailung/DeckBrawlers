@@ -16,10 +16,10 @@ MonoBehaviour:
   appearanceOffSprite: {fileID: 0}
   appearanceAnimation: {fileID: 0}
   appearanceAudioClip: {fileID: 0}
-  appearanceHP: 5
-  appearanceDEF: 5
-  appearanceATK: 5
-  appearanceDEX: 5
-  appearanceSPD: 5
+  appearanceHP: 1
+  appearanceDEF: 1
+  appearanceATK: 1
+  appearanceDEX: 1
+  appearanceSPD: 1
   appearanceType: 4
   appearanceColor: {r: 1, g: 1, b: 1, a: 1}

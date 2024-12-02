@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class SelectedAppearance : MonoBehaviour
 {
-    [SerializeField] private AppearanceCardScriptableClass card;
+    [SerializeField] public AppearanceCardScriptableClass card;
 
-    public void ChangeSelectedCard(AppearanceCardScriptableClass newCard)
+    private void Awake()
     {
-        card = newCard;
-        this.gameObject.GetComponent<Image>().sprite = newCard.appearanceOnSprite;
+        this.gameObject.GetComponent<Image>().sprite = card.appearanceOnSprite;
     }
+
 }

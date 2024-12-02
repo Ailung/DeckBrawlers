@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f02c79efc8bfc98459dda775cb2df4e7, type: 3}
-  m_Name: top1
+  m_Name: bottom 4
   m_EditorClassIdentifier: 
-  appearanceOnSprite: {fileID: 21300000, guid: 6fbe363c47ec69549873654893dc1f01, type: 3}
+  appearanceOnSprite: {fileID: 21300000, guid: 83fc9c28e2df93f4092e499a497efff3, type: 3}
   appearanceOffSprite: {fileID: 0}
   appearanceAnimation: {fileID: 0}
   appearanceAudioClip: {fileID: 0}
-  appearanceHP: 5
-  appearanceDEF: 5
-  appearanceATK: 5
-  appearanceDEX: 5
-  appearanceSPD: 5
-  appearanceType: 4
+  appearanceHP: 8
+  appearanceDEF: 0
+  appearanceATK: 0
+  appearanceDEX: 0
+  appearanceSPD: 0
+  appearanceType: 5
   appearanceColor: {r: 1, g: 1, b: 1, a: 1}

@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class ChangeItemToSelected : MonoBehaviour
 {
     [SerializeField] private AppearanceCardScriptableClass holdingItem;
-    [SerializeField] private GameObject slotToChange;
+    [SerializeField] private GameObject cardToChange;
 
     private Button buttonClick;
 
@@ -19,7 +19,8 @@ public class ChangeItemToSelected : MonoBehaviour
     }
     public void ChangeSelectedItem()
     {
-        slotToChange.GetComponent<SelectedAppearance>().ChangeSelectedCard(holdingItem);
+        cardToChange.GetComponent<SelectedAppearance>().card = holdingItem;
+        cardToChange.GetComponent<Image>().sprite = holdingItem.appearanceOnSprite;
     }
 
 

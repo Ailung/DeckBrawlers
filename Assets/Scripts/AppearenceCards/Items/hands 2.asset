@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f02c79efc8bfc98459dda775cb2df4e7, type: 3}
-  m_Name: hat1
+  m_Name: hands 2
   m_EditorClassIdentifier: 
-  appearanceOnSprite: {fileID: 21300000, guid: 694993ff76eb3794282e9b916c9cafbf, type: 3}
+  appearanceOnSprite: {fileID: 21300000, guid: 622d3b484629d0b47bd816287fecb1f6, type: 3}
   appearanceOffSprite: {fileID: 0}
   appearanceAnimation: {fileID: 0}
   appearanceAudioClip: {fileID: 0}
@@ -21,5 +21,5 @@ MonoBehaviour:
   appearanceATK: 0
   appearanceDEX: 0
   appearanceSPD: 0
-  appearanceType: 0
+  appearanceType: 6
   appearanceColor: {r: 1, g: 1, b: 1, a: 1}

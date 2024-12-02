@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f02c79efc8bfc98459dda775cb2df4e7, type: 3}
+<<<<<<<< HEAD:Assets/Scripts/AppearenceCards/Items/bottom 3.asset
   m_Name: bottom 3
+========
+  m_Name: FlotadorBlanco
+>>>>>>>> DevAlan:Assets/Scripts/AppearenceCards/Items/bottom/FlotadorBlanco.asset
   m_EditorClassIdentifier: 
   appearanceOnSprite: {fileID: 21300000, guid: f8cc44af8e2a01b4894936e2f448d14b, type: 3}
   appearanceOffSprite: {fileID: 0}

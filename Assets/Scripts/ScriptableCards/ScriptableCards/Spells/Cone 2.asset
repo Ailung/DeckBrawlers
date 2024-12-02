@@ -15,6 +15,8 @@ MonoBehaviour:
   prefab: {fileID: 4452446470935070040, guid: 10e5c869d0689cc4bb79bbfe6fbf5b27, type: 3}
   color: {r: 1, g: 1, b: 1, a: 1}
   damage: 12
+  ConeAnimation: 2
   speed: 1
   size: 1
+  tag: Player
   animationClip: {fileID: 7400000, guid: dadf5f9bdf0851e409d761fdbcc316cc, type: 2}

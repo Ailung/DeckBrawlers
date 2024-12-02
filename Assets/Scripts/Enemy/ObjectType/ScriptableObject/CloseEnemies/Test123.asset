@@ -19,4 +19,4 @@ MonoBehaviour:
   chasingDistance: 0.5
   dropId: Food
   enemyStateEnum: 2
-  selectedCard: {fileID: 0}
+  selectedCard: {fileID: 11400000, guid: ede5411a6dd46b04f942866fa2532631, type: 2}

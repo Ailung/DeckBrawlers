@@ -15,6 +15,8 @@ MonoBehaviour:
   prefab: {fileID: 6791785011473192917, guid: 9a545602f23ec4547b02a1683bd13212, type: 3}
   color: {r: 1, g: 1, b: 1, a: 1}
   damage: 8
+  bulletAnimation: 4
   speed: 8
   size: 2
+  tag: Player
   animationClip: {fileID: 7400000, guid: 600ed3ff732258f4ea8b8da13d556eff, type: 2}

@@ -28,18 +28,24 @@ public class CardsKeeper : MonoBehaviour
     [SerializeField] public GameObject bottomObject;
     [SerializeField] public GameObject shoesObject;
 
+
+    public GameObject selectedSpellCard;
+
     private void Awake()
     {
         // If there is an instance, and it's not me, delete myself.
 
-        if (Instance != null && Instance != this)
-        {
-            Destroy(this);
-        }
-        else
+        if (Instance == null)
         {
             Instance = this;
         }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
 
         hatObject.GetComponent<SelectedAppearance>().card = hat;
         hatObject.GetComponent<Image>().sprite = hat.appearanceOnSprite;
@@ -75,5 +81,8 @@ public class CardsKeeper : MonoBehaviour
         return;
     }
 
-
+    public void NewSelectedSpellCard(GameObject spellBeingChanged)
+    {
+        selectedSpellCard = spellBeingChanged;
+    }
 }

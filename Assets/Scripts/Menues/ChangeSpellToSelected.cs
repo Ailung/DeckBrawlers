@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class ChangeSpellToSelected : MonoBehaviour
 {
     [SerializeField] private SpellScriptableCardClass holdingCard;
-    [SerializeField] private GameObject cardToChange;
 
     private void Awake()
     {
@@ -14,7 +13,7 @@ public class ChangeSpellToSelected : MonoBehaviour
     }
     public void ChangeSelectedItem()
     {
-        cardToChange.GetComponent<SelectedSpell>().card = holdingCard;
-        cardToChange.GetComponent<Image>().sprite = holdingCard.CardAppearance;
+        CardsKeeper.Instance.selectedSpellCard.GetComponent<SelectedSpell>().card = holdingCard;
+        CardsKeeper.Instance.selectedSpellCard.GetComponent<Image>().sprite = holdingCard.CardAppearance;
     }
 }

@@ -3,10 +3,53 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Splines;
 using Random = System.Random;
 
 public class EnemyController : MonoBehaviour
 {
+    [SerializeField] private SplineContainer[] SplineCHead;
+        // 0) Head Default  
+        // 1) Head Death    
+    [SerializeField] private SplineAnimate SplineAHead;
+    [SerializeField] private SplineContainer[] SplineCTorso;
+        // 0) Torso Default 
+        // 1) Torso Death   
+    [SerializeField] private SplineAnimate SplineATorso;
+    [SerializeField] private SplineContainer[] SplineCHandL;
+        // 0) HandL Idle 
+        // 1) HandL Walk
+        // 2) HandL Block
+        // 3) HandL Punch 
+        // 4) HandL SpellA
+        // 5) HandL SpellB
+        // 6) HandL SpellC
+        // 7) HandL Hurt
+        // 8) HandL Death
+    [SerializeField] private SplineAnimate SplineAHandL;
+    [SerializeField] private SplineContainer[] SplineCHandR;
+        // 0) HandR Idle 
+        // 1) HandR Walk
+        // 2) HandR Punch 
+        // 3) HandR SpellA
+        // 4) HandR SpellB
+        // 5) HandR SpellC
+        // 6) HandR Hurt
+        // 7) HandR Death
+    [SerializeField] private SplineAnimate SplineAHandR;
+    [SerializeField] private SplineContainer[] SplineCFeetL;
+        // 0) FootL Default
+        // 1) FootL Walk
+    [SerializeField] private SplineAnimate SplineAFeetL;
+    [SerializeField] private SplineContainer[] SplineCFeetR;
+        // 0) FootR Default
+        // 1) FootR Walk
+        // 2) FootR Kick
+    [SerializeField] private SplineAnimate SplineAFeetR;
+    private float AnimationTimer;
+    private float AnimationCounter;
+    public int CurrentAnimation;
+
     //[SerializeField] private float chaseDistance;
     //[SerializeField] private float stopDistance;
     //[SerializeField] private float chasingDistance = 0.5f;
@@ -19,8 +62,8 @@ public class EnemyController : MonoBehaviour
     private Random random = new Random();
 
     private CharacterController player;
-    private GameObject hand;
-    private GameObject foot;
+    [SerializeField] private GameObject hand;
+    [SerializeField] private GameObject foot;
     private bool isFacingRight = false;
     private bool isStunned = false;
     private StateMachine enemyStateMachine;
@@ -73,11 +116,20 @@ public class EnemyController : MonoBehaviour
         {
             case EnemyStateEnum.chasing:
                 enemyStateMachine.Initialize(enemyStateMachine.chasingState);
+                if ((CurrentAnimation != 1) & (CurrentAnimation != 9))
+                {
+                    Animation(1);
+                }
                 break;
 
             case EnemyStateEnum.waiting:
                 enemyStateMachine.Initialize(enemyStateMachine.waitingState);
+                if ((CurrentAnimation != 1) & (CurrentAnimation != 9))
+                {
+                    Animation(1);
+                }
                 break;
+
 
             case EnemyStateEnum.casting:
                 enemyStateMachine.Initialize(enemyStateMachine.castingState);
@@ -162,6 +214,31 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
+        if (hand.gameObject.activeSelf)
+        {
+            if ((CurrentAnimation != 3) & (CurrentAnimation != 9))
+            {
+                Animation(3);
+            }
+        }
+        else
+        {
+            if (foot.gameObject.activeSelf)
+            {
+                if ((CurrentAnimation != 4) & (CurrentAnimation != 9))
+                {
+                    Animation(4);
+                }
+            }
+            else
+            {                
+                if ((CurrentAnimation == 3 | CurrentAnimation == 4) & (CurrentAnimation != 9))
+                {
+                    Animation(0);
+                }
+            }
+        }
+
         playerDistance = Vector2.Distance(transform.position, player.transform.position);
         if (!isStunned)
         {
@@ -214,16 +291,28 @@ public class EnemyController : MonoBehaviour
                         if (spell <= 1)
                         {
                             Debug.Log("combo 1 lanzado");
+                            if ((CurrentAnimation != 5) & (CurrentAnimation != 9))
+                            {
+                                Animation(5);
+                            }
                             enemyData.selectedCard.OrangeSpell.Behaviour(this.gameObject);
                         }
                         else if (spell > 1 && spell <= 2)
                         {
                             Debug.Log("combo 2 lanzado");
+                            if ((CurrentAnimation != 6) & (CurrentAnimation != 9))
+                            {
+                                Animation(6);
+                            }
                             enemyData.selectedCard.GreenSpell.Behaviour(this.gameObject);
                         }
                         else if (spell > 2 && spell <= 3)
                         {
                             Debug.Log("combo 3 lanzado");
+                            if ((CurrentAnimation != 7) & (CurrentAnimation != 9))
+                            {
+                                Animation(7);
+                            }
                             enemyData.selectedCard.BlueSpell.Behaviour(this.gameObject);
                         }
                         else
@@ -238,6 +327,10 @@ public class EnemyController : MonoBehaviour
                     if (enemyData.selectedCard != null && enemyData.selectedCard.BlueSpell == null)
                     {
                         Debug.Log("combo 1 lanzado");
+                            if ((CurrentAnimation != 5) & (CurrentAnimation != 9))
+                            {
+                                Animation(5);
+                            }
                         enemyData.selectedCard.OrangeSpell.Behaviour(this.gameObject);
                     }
                 }
@@ -248,6 +341,10 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator stunned()
     {
+        if ((CurrentAnimation != 8) & (CurrentAnimation != 9))
+        {
+            Animation(8);
+        }
         yield return new WaitForSeconds(1f);
         isStunned = true;
         yield return new WaitForSeconds(1f);
@@ -260,4 +357,184 @@ public class EnemyController : MonoBehaviour
         rb.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
         StartCoroutine(stunned());
     }
+    public void Animation(int Int_Index)
+    {
+        // 0) Idle 
+        // 1) Walk
+        // 2) Block
+        // 3) Punch 
+        // 4) Kick 
+        // 5) SpellA
+        // 6) SpellB
+        // 7) SpellC
+        // 8) Hurt
+        // 9) Death
+        AnimationCounter = 0;
+        CurrentAnimation = Int_Index;
+        switch (Int_Index)
+        {
+            case 0:
+                AnimationTimer = -1;
+
+                SplineAHead.Container = SplineCHead[0];
+                SplineATorso.Container = SplineCTorso[0];
+                SplineAHandL.Container = SplineCHandL[0];
+                SplineAHandR.Container = SplineCHandR[0];
+                SplineAFeetL.Container = SplineCFeetL[0];
+                SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+            break;
+            case 1:
+                AnimationTimer = -1;
+                SplineAHead.Container = SplineCHead[0];
+                SplineATorso.Container = SplineCTorso[0];
+                SplineAHandL.Container = SplineCHandL[1];
+                SplineAHandR.Container = SplineCHandR[1];
+                SplineAFeetL.Container = SplineCFeetL[1];
+                SplineAFeetR.Container = SplineCFeetR[1];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+            break;
+            case 2:
+                AnimationTimer = 1;
+                SplineAHead.Container = SplineCHead[0];
+                SplineATorso.Container = SplineCTorso[0];
+                SplineAHandL.Container = SplineCHandL[2];
+                SplineAHandR.Container = SplineCHandR[0];
+                SplineAFeetL.Container = SplineCFeetL[0];
+                SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.XAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.XAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+            break;
+            case 3:
+                AnimationTimer = 1;
+                SplineAHead.Container = SplineCHead[0];
+                SplineATorso.Container = SplineCTorso[0];
+                SplineAHandL.Container = SplineCHandL[3];
+                SplineAHandR.Container = SplineCHandR[2];
+                SplineAFeetL.Container = SplineCFeetL[0];
+                SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.XAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+            break;
+            case 4:
+                AnimationTimer = 1;
+                SplineAHead.Container = SplineCHead[0];
+                SplineATorso.Container = SplineCTorso[0];
+                SplineAHandL.Container = SplineCHandL[0];
+                SplineAHandR.Container = SplineCHandR[0];
+                SplineAFeetL.Container = SplineCFeetL[0];
+                SplineAFeetR.Container = SplineCFeetR[2];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.ZAxis;
+            break;
+            case 5:
+                AnimationTimer = 1;
+                SplineAHead.Container = SplineCHead[0];
+                SplineATorso.Container = SplineCTorso[0];
+                SplineAHandL.Container = SplineCHandL[4];
+                SplineAHandR.Container = SplineCHandR[3];
+                SplineAFeetL.Container = SplineCFeetL[0];
+                SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+            break;
+            case 6:
+                AnimationTimer = 1;
+                SplineAHead.Container = SplineCHead[0];
+                SplineATorso.Container = SplineCTorso[0];
+                SplineAHandL.Container = SplineCHandL[5];
+                SplineAHandR.Container = SplineCHandR[4];
+                SplineAFeetL.Container = SplineCFeetL[0];
+                SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+            break;
+            case 7:
+                AnimationTimer = 1;
+                SplineAHead.Container = SplineCHead[0];
+                SplineATorso.Container = SplineCTorso[0];
+                SplineAHandL.Container = SplineCHandL[6];
+                SplineAHandR.Container = SplineCHandR[5];
+                SplineAFeetL.Container = SplineCFeetL[0];
+                SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+            break;
+            case 8:
+                AnimationTimer = 1;
+                SplineAHead.Container = SplineCHead[0];
+                SplineATorso.Container = SplineCTorso[0];
+                SplineAHandL.Container = SplineCHandL[7];
+                SplineAHandR.Container = SplineCHandR[6];
+                SplineAFeetL.Container = SplineCFeetL[0];
+                SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+            break;
+            case 9:
+                AnimationTimer = 1;
+                SplineAHead.Container = SplineCHead[1];
+                SplineATorso.Container = SplineCTorso[1];
+                SplineAHandL.Container = SplineCHandL[8];
+                SplineAHandR.Container = SplineCHandR[7];
+                SplineAFeetL.Container = SplineCFeetL[0];
+                SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAHandL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.XAxis;
+                SplineAHandR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.XAxis;
+                SplineAFeetL.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+                SplineAFeetR.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
+            break;
+        }
+    }
 }
+

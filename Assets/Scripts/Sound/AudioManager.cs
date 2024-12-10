@@ -10,6 +10,9 @@ public class AudioManager : MonoBehaviour
     public Sound[] musicSounds, sfxSounds;
     public AudioSource musicSource, sfxSource;
 
+    public float musicVolume;
+    public float sfxVolume;
+
     [SerializeField] private string startMusic;
 
     private void Start()
@@ -20,10 +23,12 @@ public class AudioManager : MonoBehaviour
     public void setMusicSource(AudioSource source)
     {
         musicSource = source;
+        musicSource.volume = musicVolume;
     }
     public void setSFXSource(AudioSource source)
     {
         sfxSource = source;
+        sfxSource.volume = sfxVolume;
     }
 
     private void Awake()

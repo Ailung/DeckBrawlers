@@ -34,6 +34,7 @@ public class Kicking : MonoBehaviour, IState
             characterController.ComboList.Add("kick");
             characterController.ResetComboTimer();
             Debug.Log("append kick");
+            characterController.Animation(4);
         }
     }
 

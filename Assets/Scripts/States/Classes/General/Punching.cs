@@ -34,6 +34,7 @@ public class Punching : MonoBehaviour, IState
             characterController.ComboList.Add("punch");
             Debug.Log("append punch");
             characterController.ResetComboTimer();
+            characterController.Animation(3);
         }
         
         

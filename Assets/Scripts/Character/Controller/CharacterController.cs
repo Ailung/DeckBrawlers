@@ -173,30 +173,14 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
-        if (hand.gameObject.activeSelf)
+       
+            
+              
+        if ((CurrentAnimation == 3 | CurrentAnimation == 4) && (CurrentAnimation != 9))
         {
-            if ((CurrentAnimation != 3) && (CurrentAnimation != 9))
-            {
-                Animation(3);
-            }
+            Animation(0);
         }
-        else
-        {
-            if (foot.gameObject.activeSelf)
-            {
-                if ((CurrentAnimation != 4) && (CurrentAnimation != 9))
-                {
-                    Animation(4);
-                }
-            }
-            else
-            {                
-                if ((CurrentAnimation == 3 | CurrentAnimation == 4) && (CurrentAnimation != 9))
-                {
-                    Animation(0);
-                }
-            }
-        }
+
         
         playerStateMachine.UpdateState();
         if (comboList.Count == 3 && comboTimer < comboRefresh)

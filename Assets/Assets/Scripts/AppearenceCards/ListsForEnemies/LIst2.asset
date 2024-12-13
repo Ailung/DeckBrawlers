@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90f3c7da6aa55ad4a8d7f8b77a665820, type: 3}
+  m_Name: LIst2
+  m_EditorClassIdentifier: 
+  id: lista1
+  appearanceCards:
+  - {fileID: 11400000, guid: 65062122fead1314e92405e51850fd86, type: 2}
+  - {fileID: 11400000, guid: 01d59090abacc8f42b35d7690e5f92ff, type: 2}
+  - {fileID: 11400000, guid: d55e9582db1a68744b0af23a2b384535, type: 2}
+  - {fileID: 11400000, guid: f28445d02cf23a04bb8a9b68a5308e3c, type: 2}
+  - {fileID: 11400000, guid: 14d94c7f698633846beb2949a8385069, type: 2}
+  - {fileID: 11400000, guid: 780a6fbfdff7c894b907f136ce37c955, type: 2}
+  - {fileID: 11400000, guid: ed1bf0e0dc5efad429133a451b845e87, type: 2}

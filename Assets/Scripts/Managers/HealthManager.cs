@@ -52,7 +52,7 @@ public class HealthManager : MonoBehaviour
     {
         if (CController.CurrentAnimation != 9)
         {
-            CController.Animation(9);
+            CController.Animation(9, 1);
         }
         yield return new WaitForSeconds(0.35f);
         GameManager.Instance.ChangeScene("Lose");

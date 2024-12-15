@@ -10,6 +10,7 @@ public class Kicking : MonoBehaviour, IState
     private Leg leg;
     private CharacterController characterController;
     private EnemyController enemyController;
+    private float agilityStat = 0;
 
     public Kicking(GameObject gameObject)
     {
@@ -19,6 +20,7 @@ public class Kicking : MonoBehaviour, IState
         if (characterController != null)
         {
             leg = characterController.gameObject.GetComponentInChildren<Leg>(true);
+            agilityStat = characterController.StatAgility;
         }
         if (enemyController != null)
         {
@@ -34,7 +36,7 @@ public class Kicking : MonoBehaviour, IState
             characterController.ComboList.Add("kick");
             characterController.ResetComboTimer();
             Debug.Log("append kick");
-            characterController.Animation(4);
+            characterController.Animation(4, leg.AttackSpeed * (agilityStat / 10) + leg.AttackSpeed);
         }
     }
 

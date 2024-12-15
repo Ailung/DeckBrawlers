@@ -5,12 +5,12 @@ using UnityEngine;
 public class Leg : Weapon
 {
     [SerializeField] private int attackDamage;
-    [SerializeField] private int attackSpeed;
+    [SerializeField] private float attackSpeed;
     private CharacterController player;
     private bool isAttacking = false;
     public override int AttackDamage => attackDamage;
 
-    public override int AttackSpeed => attackSpeed;
+    public override float AttackSpeed => attackSpeed;
 
     public override CharacterController Player => player;
     public override bool IsAttacking => isAttacking;

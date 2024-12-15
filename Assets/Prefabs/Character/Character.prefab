@@ -39,7 +39,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 744924449}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -123,7 +123,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017282263}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -962,7 +962,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.3041626, y: -0.71234703, z: 0.1}
-  m_LocalScale: {x: 0.40355936, y: 0.40355936, z: 0.40355936}
+  m_LocalScale: {x: 0.40355936, y: 0.40355936, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8148599119010462727}
@@ -1087,7 +1087,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.47, y: -2.96, z: 0}
-  m_LocalScale: {x: 0.424, y: 0.424, z: 0.424}
+  m_LocalScale: {x: 0.424, y: 0.424, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8313381719058832333}
@@ -1158,12 +1158,20 @@ MonoBehaviour:
   hand: {fileID: 8853757364226393591}
   foot: {fileID: 3175964124219915854}
   shield: {fileID: 5899358185514636648}
-  appearanceCards:
-  - {fileID: 11400000, guid: ed1bf0e0dc5efad429133a451b845e87, type: 2}
-  combo1: []
-  combo2: []
-  combo3: []
-  comboRefresh: 5
+  appearanceCards: []
+  combo1:
+  - kick
+  - kick
+  - punch
+  combo2:
+  - kick
+  - punch
+  - kick
+  combo3:
+  - kick
+  - punch
+  - punch
+  comboRefresh: 1
 --- !u!70 &3400456742453807802
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2037,7 +2045,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 15
-  attackSpeed: 2
+  attackSpeed: 0.1
 --- !u!1 &3292521116608848908
 GameObject:
   m_ObjectHideFlags: 0
@@ -3892,7 +3900,7 @@ Transform:
   m_GameObject: {fileID: 5899358185514636648}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0050000423, y: 0, z: 0}
+  m_LocalPosition: {x: -0.005, y: 0, z: 0}
   m_LocalScale: {x: 2.3584905, y: 2.3584905, z: 2.3584905}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3938,7 +3946,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0, g: 0.44298744, b: 1, a: 0.3882353}
   m_FlipX: 0
@@ -5387,7 +5395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackDamage: 10
-  attackSpeed: 1
+  attackSpeed: 0.1
 --- !u!1 &8997970525590815353
 GameObject:
   m_ObjectHideFlags: 0

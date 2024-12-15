@@ -176,9 +176,9 @@ public class CharacterController : MonoBehaviour
        
             
               
-        if ((CurrentAnimation == 3 | CurrentAnimation == 4) && (CurrentAnimation != 9))
+        if ((CurrentAnimation == 3 | CurrentAnimation == 4) && (CurrentAnimation != 9) && !hand.activeSelf && !foot.activeSelf)
         {
-            Animation(0);
+            Animation(0, 1);
         }
 
         
@@ -191,9 +191,9 @@ public class CharacterController : MonoBehaviour
                 comboList.Clear();
                 comboTimer = 0;
                 cardsManager.UseCard("orange", this.gameObject);
-                if ((CurrentAnimation != 5) && (CurrentAnimation != 9))
+                if ((CurrentAnimation != 5) && (CurrentAnimation != 9) && !hand.activeSelf && !foot.activeSelf)
                 {
-                    Animation(5);
+                    Animation(5, 1);
                 }
             } else if (comboList.SequenceEqual(combo2)) 
             {
@@ -201,9 +201,9 @@ public class CharacterController : MonoBehaviour
                 comboList.Clear();
                 comboTimer = 0;
                 cardsManager.UseCard("blue", this.gameObject);
-                if ((CurrentAnimation != 6) && (CurrentAnimation != 9))
+                if ((CurrentAnimation != 6) && (CurrentAnimation != 9) && !hand.activeSelf && !foot.activeSelf)
                 {
-                    Animation(6);
+                    Animation(6, 1);
                 }
             }
             else if (comboList.SequenceEqual(combo3))
@@ -212,9 +212,9 @@ public class CharacterController : MonoBehaviour
                 comboList.Clear();
                 comboTimer = 0;
                 cardsManager.UseCard("green", this.gameObject);
-                if ((CurrentAnimation != 7) && (CurrentAnimation != 9))
+                if ((CurrentAnimation != 7) && (CurrentAnimation != 9) && !hand.activeSelf && !foot.activeSelf)
                 {
-                    Animation(7);
+                    Animation(7, 1);
                 }
             }
             else
@@ -279,9 +279,9 @@ public class CharacterController : MonoBehaviour
 
     private IEnumerator stunned()
     {
-        if ((CurrentAnimation != 8) && (CurrentAnimation != 9))
+        if ((CurrentAnimation != 8) && (CurrentAnimation != 9) && !hand.activeSelf && !foot.activeSelf)
         {
-            Animation(8);
+            Animation(8, 1);
         }
         yield return new WaitForSeconds(1f);
         isStunned = false;
@@ -312,21 +312,21 @@ public class CharacterController : MonoBehaviour
             isFacingRight = true;
         }
 
-        if (playerStateMachine.CurrentState is not Block && !isStunned)
+        if (playerStateMachine.CurrentState is not Block && !isStunned && playerStateMachine.CurrentState is not Punching && playerStateMachine.CurrentState is not Kicking)
         {
             rb.velocity = new Vector2((inputHorizontal * baseSpeed * (statSpeed / 10)) + (inputHorizontal * baseSpeed), (inputVertical * baseSpeed * (statSpeed / 10)) + (inputVertical * baseSpeed));
             if (((rb.velocity.x < -0.2f)) | ((0.2f < rb.velocity.x)))
             {
-                if ((CurrentAnimation != 1) && (CurrentAnimation != 9))
+                if ((CurrentAnimation != 1) && (CurrentAnimation != 9) && !hand.activeSelf && !foot.activeSelf)
                 {
-                    Animation(1);
+                    Animation(1, 1);
                 }
             }
             else
             {
-                if ((CurrentAnimation != 0) && (CurrentAnimation != 9))
+                if ((CurrentAnimation != 0) && (CurrentAnimation != 9) && !hand.activeSelf && !foot.activeSelf)
                 {
-                    Animation(0);
+                    Animation(0, 1);
                 }
             }
         }
@@ -343,7 +343,7 @@ public class CharacterController : MonoBehaviour
         shield.gameObject.SetActive(state);
         if ((CurrentAnimation != 2) && (CurrentAnimation != 9) && state)
         {
-            Animation(2);
+            Animation(2, 1);
         }
     }
 
@@ -358,7 +358,7 @@ public class CharacterController : MonoBehaviour
         }
         
     }
-    public void Animation(int Int_Index)
+    public void Animation(int Int_Index, float time)
     {
         // 0) Idle 
         // 1) Walk
@@ -377,12 +377,33 @@ public class CharacterController : MonoBehaviour
             case 0:
                 AnimationTimer = -1;
 
+                SplineAHead.Loop = SplineAnimate.LoopMode.Loop;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Loop;
+
+                SplineAHead.Duration = time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[0];
                 SplineATorso.Container = SplineCTorso[0];
                 SplineAHandL.Container = SplineCHandL[0];
                 SplineAHandR.Container = SplineCHandR[0];
                 SplineAFeetL.Container = SplineCFeetL[0];
                 SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
@@ -393,12 +414,34 @@ public class CharacterController : MonoBehaviour
             break;
             case 1:
                 AnimationTimer = -1;
+
+                SplineAHead.Loop = SplineAnimate.LoopMode.Loop;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Loop;
+
+                SplineAHead.Duration = time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[0];
                 SplineATorso.Container = SplineCTorso[0];
                 SplineAHandL.Container = SplineCHandL[1];
                 SplineAHandR.Container = SplineCHandR[1];
                 SplineAFeetL.Container = SplineCFeetL[1];
                 SplineAFeetR.Container = SplineCFeetR[1];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
@@ -409,12 +452,34 @@ public class CharacterController : MonoBehaviour
             break;
             case 2:
                 AnimationTimer = 1;
+
+                SplineAHead.Loop = SplineAnimate.LoopMode.Loop;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Loop;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Loop;
+
+                SplineAHead.Duration = time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[0];
                 SplineATorso.Container = SplineCTorso[0];
                 SplineAHandL.Container = SplineCHandL[2];
                 SplineAHandR.Container = SplineCHandR[0];
                 SplineAFeetL.Container = SplineCFeetL[0];
                 SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
@@ -425,12 +490,34 @@ public class CharacterController : MonoBehaviour
             break;
             case 3:
                 AnimationTimer = 1;
+
+                SplineAHead.Loop = SplineAnimate.LoopMode.Once;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Once;
+
+                SplineAHead.Duration =  time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[0];
                 SplineATorso.Container = SplineCTorso[0];
                 SplineAHandL.Container = SplineCHandL[3];
                 SplineAHandR.Container = SplineCHandR[2];
                 SplineAFeetL.Container = SplineCFeetL[0];
                 SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
@@ -441,12 +528,34 @@ public class CharacterController : MonoBehaviour
             break;
             case 4:
                 AnimationTimer = 1;
+
+                SplineAHead.Loop = SplineAnimate.LoopMode.Once;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Once;
+
+                SplineAHead.Duration = time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[0];
                 SplineATorso.Container = SplineCTorso[0];
                 SplineAHandL.Container = SplineCHandL[0];
                 SplineAHandR.Container = SplineCHandR[0];
                 SplineAFeetL.Container = SplineCFeetL[0];
                 SplineAFeetR.Container = SplineCFeetR[2];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
@@ -457,12 +566,34 @@ public class CharacterController : MonoBehaviour
             break;
             case 5:
                 AnimationTimer = 1;
+
+                SplineAHead.Loop = SplineAnimate.LoopMode.Once;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Once;
+
+                SplineAHead.Duration = time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[0];
                 SplineATorso.Container = SplineCTorso[0];
                 SplineAHandL.Container = SplineCHandL[4];
                 SplineAHandR.Container = SplineCHandR[3];
                 SplineAFeetL.Container = SplineCFeetL[0];
                 SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
@@ -473,12 +604,34 @@ public class CharacterController : MonoBehaviour
             break;
             case 6:
                 AnimationTimer = 1;
+
+                SplineAHead.Loop = SplineAnimate.LoopMode.Once;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Once;
+
+                SplineAHead.Duration = time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[0];
                 SplineATorso.Container = SplineCTorso[0];
                 SplineAHandL.Container = SplineCHandL[5];
                 SplineAHandR.Container = SplineCHandR[4];
                 SplineAFeetL.Container = SplineCFeetL[0];
                 SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
@@ -489,12 +642,34 @@ public class CharacterController : MonoBehaviour
             break;
             case 7:
                 AnimationTimer = 1;
+
+                SplineAHead.Loop = SplineAnimate.LoopMode.Once;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Once;
+
+                SplineAHead.Duration = time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[0];
                 SplineATorso.Container = SplineCTorso[0];
                 SplineAHandL.Container = SplineCHandL[6];
                 SplineAHandR.Container = SplineCHandR[5];
                 SplineAFeetL.Container = SplineCFeetL[0];
                 SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
@@ -505,12 +680,34 @@ public class CharacterController : MonoBehaviour
             break;
             case 8:
                 AnimationTimer = 1;
+
+                SplineAHead.Loop = SplineAnimate.LoopMode.Once;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Once;
+
+                SplineAHead.Duration = time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[0];
                 SplineATorso.Container = SplineCTorso[0];
                 SplineAHandL.Container = SplineCHandL[7];
                 SplineAHandR.Container = SplineCHandR[6];
                 SplineAFeetL.Container = SplineCFeetL[0];
                 SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
@@ -521,12 +718,34 @@ public class CharacterController : MonoBehaviour
             break;
             case 9:
                 AnimationTimer = 1;
+
+                SplineAHead.Loop = SplineAnimate.LoopMode.Once;
+                SplineATorso.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAHandR.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetL.Loop = SplineAnimate.LoopMode.Once;
+                SplineAFeetR.Loop = SplineAnimate.LoopMode.Once;
+
+                SplineAHead.Duration = time;
+                SplineATorso.Duration = time;
+                SplineAHandL.Duration = time;
+                SplineAHandR.Duration = time;
+                SplineAFeetL.Duration = time;
+                SplineAFeetR.Duration = time;
+
                 SplineAHead.Container = SplineCHead[1];
                 SplineATorso.Container = SplineCTorso[1];
                 SplineAHandL.Container = SplineCHandL[8];
                 SplineAHandR.Container = SplineCHandR[7];
                 SplineAFeetL.Container = SplineCFeetL[0];
                 SplineAFeetR.Container = SplineCFeetR[0];
+
+                SplineAHead.Restart(true);
+                SplineATorso.Restart(true);
+                SplineAHandL.Restart(true);
+                SplineAHandR.Restart(true);
+                SplineAFeetL.Restart(true);
+                SplineAFeetR.Restart(true);
 
                 SplineAHead.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;
                 SplineATorso.ObjectUpAxis = UnityEngine.Splines.SplineComponent.AlignAxis.YAxis;

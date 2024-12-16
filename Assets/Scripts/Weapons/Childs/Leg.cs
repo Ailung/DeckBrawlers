@@ -5,12 +5,12 @@ using UnityEngine;
 public class Leg : Weapon
 {
     [SerializeField] private int attackDamage;
-    [SerializeField] private int attackSpeed;
+    [SerializeField] private float attackSpeed;
     private CharacterController player;
     private bool isAttacking = false;
     public override int AttackDamage => attackDamage;
 
-    public override int AttackSpeed => attackSpeed;
+    public override float AttackSpeed => attackSpeed;
 
     public override CharacterController Player => player;
     public override bool IsAttacking => isAttacking;
@@ -19,16 +19,24 @@ public class Leg : Weapon
     {
         player = this.gameObject.GetComponentInParent<CharacterController>();
     }
-    public override void Attack()
+
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    gameObject.SetActive(false);
+    //}
+    public override void Attack(float agilityStat = 0)
     {
         isAttacking = true;
         gameObject.SetActive(true);
-        StartCoroutine(waitToEnd());
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        AudioManager.Instance.PlaySFX("Golpe");
+        StartCoroutine(waitToEnd(agilityStat));
+
     }
 
-    IEnumerator waitToEnd()
+    IEnumerator waitToEnd(float agilityStat)
     {
-        yield return new WaitForSeconds(attackSpeed);
+        yield return new WaitForSeconds((float)(attackSpeed * (agilityStat/10) + attackSpeed));
         gameObject.SetActive(false);
         isAttacking = false;
     }

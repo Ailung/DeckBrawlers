@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23bce9b8ee5ddf043933841a329ba6c8, type: 3}
+  m_Name: MachineGunData
+  m_EditorClassIdentifier: 
+  weaponPrefab: {fileID: 8239589423960016137, guid: c2bad33131c83c445b92256d4d564da7, type: 3}

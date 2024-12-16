@@ -99,6 +99,7 @@ public class CardsKeeper : MonoBehaviour
         shoes = shoesObject.GetComponent<SelectedAppearance>().card;
 
         appearanceCards = new List<AppearanceCardScriptableClass> { hat, face, top, hands , bottom, shoes};
+
     }
 
     public void UpdateDeck()

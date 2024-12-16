@@ -16,3 +16,7 @@ MonoBehaviour:
   blueSpell: {fileID: 11400000, guid: 6d31fbada8fb8e348ad422ca0ddd59d4, type: 2}
   greenSpell: {fileID: 11400000, guid: eeb93c180db2d0e4588b6845090c1037, type: 2}
   cardAppearance: {fileID: 82886357, guid: 07d6992622da43443af882ed6f6bdc76, type: 3}
+  orangeComboDescription: "Libera energ\xEDa a su alrededor de color celeste, su
+    duraci\xF3n es de 1 segundo."
+  blueComboDescription: "Dispara un disco de energ\xEDa color amarillo."
+  greenComboDescription: "Hace un corte de energ\xEDa longitudinal del tipo naranja."

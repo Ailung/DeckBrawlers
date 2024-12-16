@@ -16,3 +16,7 @@ MonoBehaviour:
   blueSpell: {fileID: 11400000, guid: 6d31fbada8fb8e348ad422ca0ddd59d4, type: 2}
   greenSpell: {fileID: 11400000, guid: 098b687ddfa2c0242855594520ae4041, type: 2}
   cardAppearance: {fileID: 481677671, guid: 3b09fe3c720e86d44865829a0d293aa3, type: 3}
+  orangeComboDescription: "Crea una corriente de energ\xEDa blanca que circula a
+    su alrededor, su duraci\xF3n es de 1 segundo."
+  blueComboDescription: "Dispara un disco de energ\xEDa color amarillo."
+  greenComboDescription: "Expulsa energ\xEDa verde hacia adelante en un corto rango."

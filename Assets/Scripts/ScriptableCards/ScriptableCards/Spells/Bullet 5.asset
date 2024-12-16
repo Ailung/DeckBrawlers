@@ -20,3 +20,4 @@ MonoBehaviour:
   size: 2
   tag: Player
   animationClip: {fileID: 7400000, guid: 9cbc575678411414c83171703ea9a968, type: 2}
+  comboDescription: 

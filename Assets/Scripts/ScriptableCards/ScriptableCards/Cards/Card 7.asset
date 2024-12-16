@@ -16,3 +16,7 @@ MonoBehaviour:
   blueSpell: {fileID: 11400000, guid: 3665bc67d69cfa045b0e69f23b5d3f3e, type: 2}
   greenSpell: {fileID: 11400000, guid: 3c05d99e1f86eeb4d877dd058f06b378, type: 2}
   cardAppearance: {fileID: -2095472191, guid: 07d6992622da43443af882ed6f6bdc76, type: 3}
+  orangeComboDescription: "Crea un \xE1rea de da\xF1o a su alrededor de color celeste,
+    su duracion es de 1 segundo."
+  blueComboDescription: "Dispara un disco de energ\xEDa color plateado."
+  greenComboDescription: "Dispara energ\xEDa verde en un corto rango."

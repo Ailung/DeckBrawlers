@@ -14,6 +14,7 @@ public class BulletSpellScriptableClass : SpellScriptableBehaviourClass
     [SerializeField] float size;
     [SerializeField] string tag;
     [SerializeField] AnimationClip animationClip;
+    [SerializeField] private string comboDescription;
     private BulletPoolManager bulletPool;
 
     protected Vector3 direction;
@@ -25,6 +26,7 @@ public class BulletSpellScriptableClass : SpellScriptableBehaviourClass
     public float Size { get { return size; } }
     public string Tag { get { return tag; } }
     public AnimationClip AnimationClip { get { return animationClip; } }
+    public string ComboDescription { get { return comboDescription; } }
 
 
     public override void Behaviour(GameObject caster)

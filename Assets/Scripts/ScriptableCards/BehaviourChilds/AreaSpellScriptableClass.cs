@@ -14,6 +14,7 @@ public class AreaSpellScriptableClass : SpellScriptableBehaviourClass
     [SerializeField] float size;
     [SerializeField] string tag;
     [SerializeField] public AnimationClip animationClip;
+    [SerializeField] private string comboDescription;
 
     public GameObject Prefab { get { return prefab; } }
     public Color Color { get { return color; } }
@@ -22,6 +23,7 @@ public class AreaSpellScriptableClass : SpellScriptableBehaviourClass
     public float Size { get { return size; } }
     public string Tag { get { return tag; } }
     public AnimationClip AnimationClip { get { return animationClip; } }
+    public string ComboDescription { get { return comboDescription; } }
 
 
     protected Vector3 direction;

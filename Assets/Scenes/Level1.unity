@@ -1879,10 +1879,14 @@ PrefabInstance:
       objectReference: {fileID: 1498010902}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: enemyData.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: enemyData.Array.data[0]
+      value: lista1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyData.Array.data[1]
       value: lista1
       objectReference: {fileID: 0}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
@@ -1891,10 +1895,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: enemyScriptableClasses.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: enemyScriptableClasses.Array.data[0]
+      value: Casting
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyScriptableClasses.Array.data[1]
       value: Casting
       objectReference: {fileID: 0}
     - target: {fileID: 4037008688448756331, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
@@ -2355,10 +2363,26 @@ PrefabInstance:
       objectReference: {fileID: 1498010902}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: enemyData.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: enemyData.Array.data[0]
+      value: lista1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyData.Array.data[1]
+      value: lista1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyData.Array.data[2]
+      value: lista1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyData.Array.data[3]
+      value: lista1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyData.Array.data[4]
       value: lista1
       objectReference: {fileID: 0}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
@@ -2367,10 +2391,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: enemyScriptableClasses.Array.size
-      value: 1
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
       propertyPath: enemyScriptableClasses.Array.data[0]
+      value: Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyScriptableClasses.Array.data[1]
+      value: Chasing
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyScriptableClasses.Array.data[2]
+      value: Chasing
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyScriptableClasses.Array.data[3]
+      value: Normal
+      objectReference: {fileID: 0}
+    - target: {fileID: 3624693884912588245, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
+      propertyPath: enemyScriptableClasses.Array.data[4]
       value: Normal
       objectReference: {fileID: 0}
     - target: {fileID: 4037008688448756331, guid: 8f90b1ce698773e4985ed85153400032, type: 3}
@@ -2510,7 +2550,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3094283085470315139, guid: 0c5d0f287576b0243ad7a3e067ec945b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 79.61
+      value: 77.23
       objectReference: {fileID: 0}
     - target: {fileID: 3094283085470315139, guid: 0c5d0f287576b0243ad7a3e067ec945b, type: 3}
       propertyPath: m_LocalPosition.y

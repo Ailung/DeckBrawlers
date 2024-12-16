@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FastCloseEnemy
   m_EditorClassIdentifier: 
   id: Normal
-  speed: 5
+  speed: 4
   chaseDistance: 3
   stopDistance: 5
   chasingDistance: 0.5

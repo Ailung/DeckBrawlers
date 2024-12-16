@@ -36,7 +36,7 @@ public class Punching : MonoBehaviour, IState
             characterController.ResetComboTimer();
             characterController.Animation(3, hand.AttackSpeed * (agilityStat / 10) + hand.AttackSpeed);
         }
-        if (characterController != null)
+        if (enemyController != null)
         {
             Debug.Log("append punch");
             enemyController.Animation(3, hand.AttackSpeed * (agilityStat / 10) + hand.AttackSpeed);

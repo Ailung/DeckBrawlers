@@ -44,8 +44,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82438dfafeec2dd4fa5041b1c7b99637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSounds: []
-  sfxSounds: []
+  musicSounds:
+  - soundName: MainMenu
+    clip: {fileID: 8300000, guid: 5055282c89278724892f52110d789547, type: 3}
+  - soundName: Level1
+    clip: {fileID: 8300000, guid: ba26506a851db0445ab9e978d3851087, type: 3}
+  sfxSounds:
+  - soundName: Golpe
+    clip: {fileID: 8300000, guid: 100bb3171715d0a4982812a8fd2941ef, type: 3}
+  - soundName: Click
+    clip: {fileID: 8300000, guid: 3a9a54b4b3e846e4296b49b701563d00, type: 3}
+  - soundName: Hit
+    clip: {fileID: 8300000, guid: e505b2d8285c98c46b63302fd7b307a4, type: 3}
+  - soundName: Bullet1
+    clip: {fileID: 8300000, guid: 05cdfc551d3847b4f883db4a749f23e0, type: 3}
+  - soundName: Area1
+    clip: {fileID: 8300000, guid: 0a7fa3c92e1c37d4fb78f58e23296700, type: 3}
+  - soundName: Cone1
+    clip: {fileID: 8300000, guid: 2ee9b5319ddd9b74a9e15dfee7b59c0d, type: 3}
+  - soundName: Cone2
+    clip: {fileID: 8300000, guid: 43e15a9fe9fe8be4e8cb04fb7d69dcca, type: 3}
+  - soundName: Bullet2
+    clip: {fileID: 8300000, guid: 55c8d13ddefe58b4894371521c33fdb4, type: 3}
+  - soundName: Bullet3
+    clip: {fileID: 8300000, guid: 1bcad66ca467923439be1466a872bf23, type: 3}
   musicSource: {fileID: 0}
   sfxSource: {fileID: 0}
-  startMusic: 
+  musicVolume: 1
+  sfxVolume: 1
+  startMusic: MainMenu

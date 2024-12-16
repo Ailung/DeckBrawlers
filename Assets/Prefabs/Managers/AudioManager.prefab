@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6038368669484976856
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4644913342481200648}
+  - component: {fileID: 624205143806612034}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4644913342481200648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038368669484976856}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -117.17129, y: 41.362427, z: -1.5060986}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &624205143806612034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6038368669484976856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82438dfafeec2dd4fa5041b1c7b99637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicSounds:
+  - soundName: MainMenu
+    clip: {fileID: 8300000, guid: 5055282c89278724892f52110d789547, type: 3}
+  - soundName: Level1
+    clip: {fileID: 8300000, guid: ba26506a851db0445ab9e978d3851087, type: 3}
+  sfxSounds:
+  - soundName: Golpe
+    clip: {fileID: 8300000, guid: 100bb3171715d0a4982812a8fd2941ef, type: 3}
+  - soundName: Click
+    clip: {fileID: 8300000, guid: 3a9a54b4b3e846e4296b49b701563d00, type: 3}
+  - soundName: Hit
+    clip: {fileID: 8300000, guid: e505b2d8285c98c46b63302fd7b307a4, type: 3}
+  - soundName: Bullet1
+    clip: {fileID: 8300000, guid: 05cdfc551d3847b4f883db4a749f23e0, type: 3}
+  - soundName: Area1
+    clip: {fileID: 8300000, guid: 0a7fa3c92e1c37d4fb78f58e23296700, type: 3}
+  - soundName: Cone1
+    clip: {fileID: 8300000, guid: 2ee9b5319ddd9b74a9e15dfee7b59c0d, type: 3}
+  - soundName: Cone2
+    clip: {fileID: 8300000, guid: 43e15a9fe9fe8be4e8cb04fb7d69dcca, type: 3}
+  - soundName: Bullet2
+    clip: {fileID: 8300000, guid: 55c8d13ddefe58b4894371521c33fdb4, type: 3}
+  - soundName: Bullet3
+    clip: {fileID: 8300000, guid: 1bcad66ca467923439be1466a872bf23, type: 3}
+  musicSource: {fileID: 0}
+  sfxSource: {fileID: 0}
+  musicVolume: 1
+  sfxVolume: 1
+  startMusic: MainMenu

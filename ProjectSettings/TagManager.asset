@@ -4,8 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Foot
-  - Hand
+  - CharacterWeapon
+  - Coin
+  - Weapon
+  - EnemyWeapon
+  - Drop
+  - Wall
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -13,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - ui2
   - 
   - 
   - 
@@ -40,6 +45,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 48683191
+    locked: 0
+  - name: Area attacks
+    uniqueID: 1504408775
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Bullets
+    uniqueID: 3647275529
+    locked: 0
+  - name: UI
+    uniqueID: 1741889959
     locked: 0

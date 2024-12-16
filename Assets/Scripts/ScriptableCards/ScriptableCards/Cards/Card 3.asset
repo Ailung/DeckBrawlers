@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81d263796faaa0445b5953256cec2248, type: 3}
+  m_Name: Card 3
+  m_EditorClassIdentifier: 
+  orangeSpell: {fileID: 11400000, guid: 48f5cad8baff7aa499facc09aa8d7d69, type: 2}
+  blueSpell: {fileID: 11400000, guid: dc2f81afe70c0a54d9b9dee6b95a1775, type: 2}
+  greenSpell: {fileID: 11400000, guid: 098b687ddfa2c0242855594520ae4041, type: 2}
+  cardAppearance: {fileID: 1688492604, guid: 3b09fe3c720e86d44865829a0d293aa3, type: 3}
+  orangeComboDescription: "Libera energ\xEDa a su alrededor de color celeste, su
+    duraci\xF3n es de 1 segundo."
+  blueComboDescription: "Dispara un disco de energ\xEDa color naranja."
+  greenComboDescription: "Expulsa energ\xEDa verde hacia adelante en un corto rango."
